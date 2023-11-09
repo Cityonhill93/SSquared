@@ -29,6 +29,11 @@ namespace SSquared.Lib.Data.Configuration
                 .Property(e => e.EmployeeId)
                 .IsRequired()
                 .HasMaxLength(10);  //Spec does not specify what the max length is, so I just picked something.
+
+            builder
+                .HasMany(manager => manager.Employees)
+                .WithOne(employee => employee.Manager)
+                .HasForeignKey(employee => employee.ManagerId);
         }
     }
 }
