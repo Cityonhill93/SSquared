@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SSquared.Lib.Employees;
+using System.Reflection;
 
 namespace SSquared.Lib.Data
 {
@@ -12,11 +14,18 @@ namespace SSquared.Lib.Data
             DbPath = Path.Join(path, "SSquared.db");
         }
 
-        public string DbPath { get; }
+        protected string DbPath { get; }
 
-        // The following configures EF to create a Sqlite database file in the
-        // special "local" folder for your platform.
+        public DbSet<Employee> Employees => Set<Employee>();
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite($"Data Source={DbPath}");
+        {
+            options.UseSqlite($"Data Source={DbPath}");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.Load("SSquared.Lib"));
+        }
     }
 }
