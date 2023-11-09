@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SSquared.Lib.Data;
 
@@ -10,9 +11,11 @@ using SSquared.Lib.Data;
 namespace SSquared.Lib.Migrations
 {
     [DbContext(typeof(SSquaredDbContextDbContext))]
-    partial class SSquaredDbContextDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231109230128_ConfigureManagerAndEmployees")]
+    partial class ConfigureManagerAndEmployees
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
