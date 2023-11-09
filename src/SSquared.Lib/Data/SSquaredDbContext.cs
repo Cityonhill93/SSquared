@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SSquared.Lib.Employees;
+using SSquared.Lib.Data.Entities;
 using System.Reflection;
 
 namespace SSquared.Lib.Data

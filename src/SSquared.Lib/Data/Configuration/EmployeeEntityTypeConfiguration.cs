@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SSquared.Lib.Employees;
+using SSquared.Lib.Data.Entities;
 
 namespace SSquared.Lib.Data.Configuration
 {

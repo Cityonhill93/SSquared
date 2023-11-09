@@ -1,4 +1,4 @@
-﻿namespace SSquared.Lib.Employees
+﻿namespace SSquared.Lib.Data.Entities
 {
     public class Employee
     {
