@@ -1,9 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using SSquared.Lib.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<SSquaredDbContextDbContext>();
 
 var app = builder.Build();
+
+//Apply migrations
+using var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
+using var dbContext = scope.ServiceProvider.GetRequiredService<SSquaredDbContextDbContext>();
+dbContext.Database.Migrate();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
