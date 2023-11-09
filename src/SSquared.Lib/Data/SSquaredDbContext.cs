@@ -9,7 +9,7 @@ namespace SSquared.Lib.Data
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "SSquared.db");
+            DbPath = Path.Join(path, "SSquared.db");
         }
 
         public string DbPath { get; }
