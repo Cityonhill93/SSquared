@@ -23,6 +23,8 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
 
         var state = this.getState();
 
+        //TODO: Add roles
+
         return <div key={`employeeEditor${this.props.employee.id}`}>
             <div className="form-group">
                 <label htmlFor={employeeIdInputId}>Employee ID</label>
