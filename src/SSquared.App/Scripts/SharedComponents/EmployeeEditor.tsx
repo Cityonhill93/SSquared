@@ -48,9 +48,9 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
     async buttonClicked() {
         var state = this.getState();
         await this.props.onSave(
-            state.employeeId,
             state.firstName,
             state.lastName,
+            state.employeeId,
             state.managerId);
     }
 
@@ -103,7 +103,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
 
 export class EmployeeEditorProps {
     employee: IExpandedEmployeeDto;
-    onSave: (employeeId:string, firstName:string, lastName:string, managerId:number|null)=>Promise<void>;
+    onSave: (firstName: string, lastName: string, employeeId: string, managerId:number|null)=>Promise<void>;
 }
 
 class EmployeeEditorState {
