@@ -9,7 +9,7 @@ using SSquared.Lib.Data;
 
 namespace SSquared.Lib.Migrations
 {
-    [DbContext(typeof(SSquaredDbContextDbContext))]
+    [DbContext(typeof(SSquaredDbContext))]
     partial class SSquaredDbContextDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

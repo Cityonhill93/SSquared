@@ -4,10 +4,10 @@ using System.Reflection;
 
 namespace SSquared.Lib.Data
 {
-    public class SSquaredDbContextDbContext : DbContext
+    public class SSquaredDbContext : DbContext
     {
 
-        public SSquaredDbContextDbContext()
+        public SSquaredDbContext()
         {
             DbPath = "./SSquared.db";
         }

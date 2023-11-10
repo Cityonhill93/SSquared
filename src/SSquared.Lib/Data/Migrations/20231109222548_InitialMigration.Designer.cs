@@ -9,7 +9,7 @@ using SSquared.Lib.Data;
 
 namespace SSquared.Lib.Migrations
 {
-    [DbContext(typeof(SSquaredDbContextDbContext))]
+    [DbContext(typeof(SSquaredDbContext))]
     [Migration("20231109222548_InitialMigration")]
     partial class InitialMigration
     {

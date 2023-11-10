@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<SSquaredDbContextDbContext>();
+builder.Services.AddDbContext<SSquaredDbContext>();
 builder.Services.AddApiVersioning(e =>
 {
     e.DefaultApiVersion = new ApiVersion(1);
@@ -18,7 +18,7 @@ var app = builder.Build();
 
 //Apply migrations
 using var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
-using var dbContext = scope.ServiceProvider.GetRequiredService<SSquaredDbContextDbContext>();
+using var dbContext = scope.ServiceProvider.GetRequiredService<SSquaredDbContext>();
 dbContext.Database.Migrate();
 
 // Configure the HTTP request pipeline.

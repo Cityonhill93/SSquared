@@ -10,7 +10,7 @@ using SSquared.Lib.Data;
 
 namespace SSquared.Lib.Data.Migrations
 {
-    [DbContext(typeof(SSquaredDbContextDbContext))]
+    [DbContext(typeof(SSquaredDbContext))]
     [Migration("20231110011024_AddEmployeeRoleMappings")]
     partial class AddEmployeeRoleMappings
     {
