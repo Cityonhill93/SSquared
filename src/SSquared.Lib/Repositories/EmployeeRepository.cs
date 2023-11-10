@@ -11,14 +11,20 @@ namespace SSquared.Lib.Repositories
         {
         }
 
-        public async Task<Employee> AddAsync(string firstName, string lastName, string employeeId, int? managerId, CancellationToken cancellationToken = default)
+        public async Task<Employee> AddAsync(string firstName, string lastName, string employeeId, int? managerId, IEnumerable<int> roleIds, CancellationToken cancellationToken = default)
         {
             var employee = new Employee
             {
                 FirstName = firstName,
                 LastName = lastName,
                 EmployeeId = employeeId,
-                ManagerId = managerId
+                ManagerId = managerId,
+                EmployeeRoles = roleIds
+                    .Distinct()
+                    .Select(roleId => new EmployeeRole
+                    {
+                        RoleId = roleId
+                    })
             };
 
             _dbContext
