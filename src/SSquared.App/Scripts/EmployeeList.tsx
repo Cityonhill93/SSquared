@@ -24,6 +24,7 @@ class EmployeeListPage extends React.Component<EmployeeListPageProps, EmployeeLi
         var state = this.getState();
 
         return <div>
+            <label>Manager</label>
             <EmployeePicker key="EmployeePicker" employeeSelected={ this.managerSelected} ></EmployeePicker>
             <EmployeeTable key="EmployeeTable" data={state.employees} ></EmployeeTable> 
         </div>;
