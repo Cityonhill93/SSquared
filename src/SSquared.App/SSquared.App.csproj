@@ -17,6 +17,7 @@
     <None Remove="Scripts\DTO\IAddEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IExpandedEmployeeDto.ts" />
+    <None Remove="Scripts\DTO\IRoleDto.ts" />
     <None Remove="Scripts\EmployeeList.tsx" />
     <None Remove="Scripts\SharedComponents\EmployeeEditor.tsx" />
     <None Remove="Scripts\SharedComponents\EmployeePicker.tsx" />
@@ -38,6 +39,7 @@
     <TypeScriptCompile Include="Scripts\DTO\IAddEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IExpandedEmployeeDto.ts" />
+    <TypeScriptCompile Include="Scripts\DTO\IRoleDto.ts" />
     <TypeScriptCompile Include="Scripts\EmployeeList.tsx" />
     <TypeScriptCompile Include="Scripts\SharedComponents\EmployeeEditor.tsx" />
     <TypeScriptCompile Include="Scripts\SharedComponents\EmployeePicker.tsx" />
