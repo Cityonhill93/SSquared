@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Scripts\AddEmployee.tsx" />
     <None Remove="Scripts\Build.js" />
     <None Remove="Scripts\DataAccess\EmployeeDataAccess.ts" />
     <None Remove="Scripts\DTO\IEmployeeDto.ts" />
@@ -30,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\AddEmployee.tsx" />
     <TypeScriptCompile Include="Scripts\Build.js" />
     <TypeScriptCompile Include="Scripts\DataAccess\EmployeeDataAccess.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IEmployeeDto.ts" />
