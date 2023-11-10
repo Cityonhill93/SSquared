@@ -3,7 +3,9 @@
 build({
     entryPoints: ["Scripts/EmployeeList.tsx"],
     bundle: true,
-    minify: true,
-    platform: 'node', // for CJS
+    globalName:"EmployeeList",
+    minify: true,   
     outfile: "/wwwroot/js/EmployeeList.js",
+    platform: "browser",
+    sourcemap:true
 });
