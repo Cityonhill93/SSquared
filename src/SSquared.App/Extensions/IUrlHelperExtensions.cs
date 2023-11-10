@@ -9,9 +9,11 @@ namespace SSquared.App.Extensions
 
         public static Uri API_GetEmployee(this IUrlHelper urlHelper, int id)
         {
+            var values = new { id = id };
             var strUrl = urlHelper.Action(
                 action: nameof(EmployeeController.GetEmployee),
-                controller: nameof(EmployeeController).Replace(CONTROLLER_SUFFIX, string.Empty));
+                controller: nameof(EmployeeController).Replace(CONTROLLER_SUFFIX, string.Empty),
+                values: values);
 
             return new Uri(strUrl!, UriKind.Relative);
         }
