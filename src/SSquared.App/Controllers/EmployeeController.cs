@@ -19,7 +19,7 @@ namespace SSquared.App.Controllers
 
         private readonly IEmployeeRepository _employeeRepository;
 
-        [HttpGet("")]
+        [HttpPost("")]
         [ApiVersion("1")]
         public async Task<IActionResult> AddEmployee([FromBody] AddEmployeeDto employee)
         {
