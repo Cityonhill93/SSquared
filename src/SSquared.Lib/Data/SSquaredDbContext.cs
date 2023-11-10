@@ -9,9 +9,7 @@ namespace SSquared.Lib.Data
 
         public SSquaredDbContextDbContext()
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = Path.Join(path, "SSquared.db");
+            DbPath = "./SSquared.db";
         }
 
         protected string DbPath { get; }
