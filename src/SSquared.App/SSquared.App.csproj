@@ -14,6 +14,7 @@
     <None Remove="Scripts\AddEmployee.tsx" />
     <None Remove="Scripts\Build.js" />
     <None Remove="Scripts\DataAccess\EmployeeDataAccess.ts" />
+    <None Remove="Scripts\DTO\IAddEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IExpandedEmployeeDto.ts" />
     <None Remove="Scripts\EmployeeList.tsx" />
@@ -34,6 +35,7 @@
     <TypeScriptCompile Include="Scripts\AddEmployee.tsx" />
     <TypeScriptCompile Include="Scripts\Build.js" />
     <TypeScriptCompile Include="Scripts\DataAccess\EmployeeDataAccess.ts" />
+    <TypeScriptCompile Include="Scripts\DTO\IAddEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IExpandedEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\EmployeeList.tsx" />
