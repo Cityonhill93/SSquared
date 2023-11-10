@@ -2,17 +2,20 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SSquared.Lib.Data;
 
 #nullable disable
 
-namespace SSquared.Lib.Migrations
+namespace SSquared.Lib.Data.Migrations
 {
     [DbContext(typeof(SSquaredDbContextDbContext))]
-    partial class SSquaredDbContextDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231110011024_AddEmployeeRoleMappings")]
+    partial class AddEmployeeRoleMappings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
