@@ -38,6 +38,7 @@ namespace SSquared.App.Controllers
                 lastName: employee.LastName,
                 employeeId: employee.EmployeeId,
                 managerId: employee.ManagerId,
+                roleIds: employee.RoleIds,
                 cancellationToken: HttpContext.RequestAborted);
             var createdDto = createdEmployee.ToExpandedEmployeeDto(Url);
 
