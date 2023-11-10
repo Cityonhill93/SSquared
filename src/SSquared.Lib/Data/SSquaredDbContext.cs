@@ -16,6 +16,8 @@ namespace SSquared.Lib.Data
 
         public DbSet<Employee> Employees => Set<Employee>();
 
+        public DbSet<EmployeeRole> EmployeeRoles => Set<EmployeeRole>();
+
         public DbSet<Role> Roles => Set<Role>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
