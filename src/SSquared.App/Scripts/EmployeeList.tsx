@@ -59,11 +59,10 @@ class EmployeeListPage extends React.Component<EmployeeListPageProps, EmployeeLi
         return state;
     }
 
-    async managerSelected(employeeId: number) {
+    async managerSelected(employeeId: number|null) {
         var state = this.getState();
 
         state.employees = await this.getData(employeeId);
-        state.loaded = true;
         this.setState(state);
     }
 }
