@@ -1,6 +1,6 @@
 ﻿namespace SSquared.Lib.Data.Entities
 {
-    public class Role
+    public class Role : IEntity
     {
         public int Id { get; set; }
 

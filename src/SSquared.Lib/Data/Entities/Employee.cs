@@ -1,6 +1,6 @@
 ﻿namespace SSquared.Lib.Data.Entities
 {
-    public class Employee
+    public class Employee : IEntity
     {
         public int Id { get; set; }
 
