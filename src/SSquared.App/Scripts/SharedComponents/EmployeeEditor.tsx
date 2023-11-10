@@ -25,22 +25,22 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
         return <div key={`employeeEditor${this.props.employee.id}`}>
             <div className="form-group">
                 <label htmlFor={employeeIdInputId}>Employee ID</label>
-                <input id={employeeIdInputId} type="text" maxLength={10} onChange={this.employeeIdChanged} value={state.employeeId} ></input>
+                <input className="form-control" id={employeeIdInputId} type="text" maxLength={10} onChange={this.employeeIdChanged} value={state.employeeId} ></input>
             </div>
             <div className="form-group">
                 <label htmlFor={fistNameInputId}>First Name</label>
-                <input id={ fistNameInputId} type="text" maxLength={100} onChange={this.firstNameChanged} value={state.firstName} ></input>
+                <input className="form-control" id={ fistNameInputId} type="text" maxLength={100} onChange={this.firstNameChanged} value={state.firstName} ></input>
             </div>
             <div className="form-group">
                 <label htmlFor={lastNameInputId}>Last Name</label>
-                <input id={ lastNameInputId} type="text" maxLength={100} onChange={this.lastNameChanged} value={state.lastName} ></input>
+                <input className="form-control" id={ lastNameInputId} type="text" maxLength={100} onChange={this.lastNameChanged} value={state.lastName} ></input>
             </div>
             <div className="form-group">
-                <label htmlFor={managerInputId}>Employee ID:</label>
+                <label htmlFor={managerInputId}>Manager</label>
                 <EmployeePicker key={employeeIdInputId} id={employeeIdInputId} employeeSelected={this.managerChanged} value={state.managerId} ></EmployeePicker>
             </div>
             <div>
-                <button className="btn btn-primary" type="button" onClick={ this.buttonClicked }>Save</button> 
+                <button className="btn btn-primary mt-3" type="button" onClick={ this.buttonClicked }>Save</button> 
             </div>
         </div>;
     }
