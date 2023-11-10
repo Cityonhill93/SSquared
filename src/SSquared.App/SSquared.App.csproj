@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,11 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\DataAccess\EmployeeDataAccess.ts" />
+    <None Remove="Scripts\DTO\IEmployeeDto.ts" />
+    <None Remove="Scripts\DTO\IExpandedEmployeeDto.ts" />
+    <None Remove="Scripts\SharedComponents\EmployeePicker.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Asp.Versioning.Http" Version="7.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SSquared.Lib\SSquared.Lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\DataAccess\EmployeeDataAccess.ts" />
+    <TypeScriptCompile Include="Scripts\DTO\IEmployeeDto.ts" />
+    <TypeScriptCompile Include="Scripts\DTO\IExpandedEmployeeDto.ts" />
+    <TypeScriptCompile Include="Scripts\SharedComponents\EmployeePicker.tsx" />
+    <TypeScriptCompile Include="tsconfig.json" />
   </ItemGroup>
 
 </Project>

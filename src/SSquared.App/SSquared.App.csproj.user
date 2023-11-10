@@ -3,4 +3,29 @@
   <PropertyGroup>
     <ActiveDebugProfile>https</ActiveDebugProfile>
   </PropertyGroup>
+  <ItemGroup>
+    <TypeScriptCompile Update="tsconfig.json">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Update="Scripts\DataAccess\EmployeeDataAccess.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Update="Scripts\DTO\IExpandedEmployeeDto.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Update="Scripts\DTO\IEmployeeDto.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Update="Scripts\SharedComponents\EmployeePicker.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
 </Project>
