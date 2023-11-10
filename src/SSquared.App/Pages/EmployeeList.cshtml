@@ -1,4 +1,4 @@
-﻿@page "Employees"
+﻿@page "/Employees"
 @model SSquared.App.Pages.EmployeePickerModel
 @{
 }
@@ -9,7 +9,7 @@
 
 @section Scripts{
 
-    <script type="text/javascript" src="~/js/EmployeeList.js"></script>
+    <script type="text/javascript" src="~/js/EmployeeList.js" asp-append-version="true"></script>
     <script type="text/javascript">
     $(document).ready(function () {
         EmployeeList.init();
