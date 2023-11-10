@@ -17,12 +17,12 @@
             },
             new Role
             {
-                    Id=2,
+                Id=2,
                 Name="Vilian"
             },
             new Role
             {
-                    Id=3,
+                Id=3,
                 Name="Leader"
             }
         };
