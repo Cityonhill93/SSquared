@@ -12,7 +12,7 @@ export class EmployeeTable extends React.Component<EmployeeTableProps, EmployeeT
         var employees = this.props.data;;
         var rows = employees.map(e => <EmployeeTableRow employee={e} key={`EmployeeRow${e.id}`} ></EmployeeTableRow>);
 
-        return <table>
+        return <table style={{ width: "100%" }} >
             <thead>
                 <tr>
                     <th>Employee ID</th>
