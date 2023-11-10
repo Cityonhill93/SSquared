@@ -11,6 +11,24 @@ namespace SSquared.Lib.Repositories
         {
         }
 
+        public async Task<Employee> AddAsync(string firstName, string lastName, string employeeId, int? managerId, CancellationToken cancellationToken = default)
+        {
+            var employee = new Employee
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                EmployeeId = employeeId,
+                ManagerId = managerId
+            };
+
+            _dbContext
+                .Employees
+                .Add(employee);
+            await _dbContext.SaveChangesAsync(cancellationToken);
+
+            return employee;
+        }
+
         public async Task<IEnumerable<Employee>> GetAsync(string? query, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(query))

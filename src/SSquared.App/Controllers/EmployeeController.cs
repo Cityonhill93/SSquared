@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
+using SSquared.App.DTO;
 using SSquared.App.Extensions;
 using SSquared.Lib.Repositories;
 
@@ -7,6 +8,8 @@ namespace SSquared.App.Controllers
 {
     [ApiController]
     [Route("api/{v:apiVersion}/Employees")]
+    [Consumes("application/json")]
+    [Produces("application/json")]
     public class EmployeeController : ControllerBase
     {
         public EmployeeController(IEmployeeRepository employeeRepository)
@@ -15,6 +18,31 @@ namespace SSquared.App.Controllers
         }
 
         private readonly IEmployeeRepository _employeeRepository;
+
+        [HttpGet("")]
+        [ApiVersion("1")]
+        public async Task<IActionResult> AddEmployee([FromBody] AddEmployeeDto employee)
+        {
+            if (employee.ManagerId is not null)
+            {
+                //Let's make sure that it is a legit employee
+                var manager = await _employeeRepository.GetAsync(employee.ManagerId.Value, HttpContext.RequestAborted);
+                if (manager is null)
+                {
+                    return BadRequest("Invalid manager ID");
+                }
+            }
+
+            var createdEmployee = await _employeeRepository.AddAsync(
+                firstName: employee.FirstName,
+                lastName: employee.LastName,
+                employeeId: employee.EmployeeId,
+                managerId: employee.ManagerId,
+                cancellationToken: HttpContext.RequestAborted);
+            var createdDto = createdEmployee.ToExpandedEmployeeDto(Url);
+
+            return Ok(createdDto);
+        }
 
         [HttpGet("{id}")]
         [ApiVersion("1")]

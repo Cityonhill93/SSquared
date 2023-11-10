@@ -7,6 +7,15 @@ namespace SSquared.App.Extensions
     {
         private const string CONTROLLER_SUFFIX = "Controller";
 
+        public static Uri API_AddEmployee(this IUrlHelper urlHelper)
+        {
+            var strUrl = urlHelper.Action(
+                action: nameof(EmployeeController.AddEmployee),
+                controller: nameof(EmployeeController).Replace(CONTROLLER_SUFFIX, string.Empty));
+
+            return new Uri(strUrl!, UriKind.Relative);
+        }
+
         public static Uri API_GetEmployee(this IUrlHelper urlHelper, int id)
         {
             var values = new { id = id };
