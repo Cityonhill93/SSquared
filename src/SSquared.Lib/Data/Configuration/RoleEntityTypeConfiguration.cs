@@ -18,26 +18,7 @@ namespace SSquared.Lib.Data.Configuration
                 .Property(r => r.Name)
                 .HasMaxLength(100);
 
-            var roleList = new List<Role>()
-            {
-                new Role
-                {
-                    Id=1,
-                    Name="Hero"
-                },
-                new Role
-                {
-                     Id=2,
-                    Name="Vilian"
-                },
-                new Role
-                {
-                     Id=3,
-                    Name="Leader"
-                }
-            };
-
-            builder.HasData(roleList);
+            builder.HasData(Role.All);
         }
     }
 }
