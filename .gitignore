@@ -13,3 +13,5 @@
 /src/SSquared.Lib/obj
 /src/SSquared.Lib/bin/Debug/net7.0
 /src/SSquared.App/bin/Debug/net7.0
+/src/*/SSquared.db
+/src/*/SSquared.db*
