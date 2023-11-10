@@ -21,18 +21,24 @@ class EmployeeListPage extends React.Component<EmployeeListPageProps, EmployeeLi
     }
 
     public render() {       
+        var state = this.getState();
+
         return <div>
             <EmployeePicker key="EmployeePicker" employeeSelected={ this.managerSelected} ></EmployeePicker>
-            <EmployeeTable key="EmployeeTable" getData={this.getData} ></EmployeeTable> 
+            <EmployeeTable key="EmployeeTable" data={state.employees} ></EmployeeTable> 
         </div>;
     }
 
-    async getData(): Promise<IEmployeeDto[]> {
+    async componentDidMount() {
         var state = this.getState();
+        state.employees = await this.getData(null);
+        this.setState(state);
+    }
 
-        var selectedManagerId = state.selectedManagerId;
-        if (selectedManagerId) {
-            var employee = await getEmployee(selectedManagerId);
+    async getData(managerId:number|null): Promise<IEmployeeDto[]> {
+
+        if (managerId) {
+            var employee = await getEmployee(managerId);
 
             return employee.employees;
         }
@@ -45,16 +51,18 @@ class EmployeeListPage extends React.Component<EmployeeListPageProps, EmployeeLi
         var state = this.state;
         if (!state) {
             state = {
-                selectedManagerId:null
+                employees: []
             };
         }
 
         return state;
     }
 
-    managerSelected(employeeId: number) {
+    async managerSelected(employeeId: number) {
         var state = this.getState();
-        state.selectedManagerId = employeeId;
+
+        state.employees = await this.getData(employeeId);
+        state.loaded = true;
         this.setState(state);
     }
 }
@@ -64,5 +72,5 @@ class EmployeeListPageProps {
 }
 
 class EmployeeListPageState {
-    selectedManagerId:number|undefined
+    employees: IEmployeeDto[];
 }

@@ -6,13 +6,10 @@ import { extend } from "jquery";
 export class EmployeeTable extends React.Component<EmployeeTableProps, EmployeeTableState> {
     constructor(p: EmployeeTableProps) {
         super(p);
-
-        this.getState = this.getState.bind(this);
     }
 
     public render() {
-        var state = this.getState();
-        var employees = state.items;
+        var employees = this.props.data;;
         var rows = employees.map(e => <EmployeeTableRow employee={e} key={`EmployeeRow${e.id}`} ></EmployeeTableRow>);
 
         return <table>
@@ -29,37 +26,14 @@ export class EmployeeTable extends React.Component<EmployeeTableProps, EmployeeT
         </table>;
     }
 
-    async componentDidUpdate() {
-        var state = this.getState();
-        if (state.loaded) {
-            return;
-        }
-        
-        state.items = await this.props.getData();
-        state.loaded = true;
-        this.setState(state);
-    }
-
-    getState(): EmployeeTableState {
-        var state = this.state;
-        if (!state) {
-            state = {
-                loaded: false,
-                items: []
-            };
-        }
-
-        return state;
-    }
 }
 
 export class EmployeeTableProps {
-    getData:()=>Promise<IEmployeeDto[]>
+    data: IEmployeeDto[];
 }
 
 class EmployeeTableState {
-    loaded: boolean;
-    items: IEmployeeDto[];
+
 }
 
 class EmployeeTableRow extends React.Component<EmployeeTableRowProps, EmployeeTableRowState> {
