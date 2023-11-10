@@ -7,6 +7,7 @@ export class EmployeePicker extends React.Component<EmployeePickerProps, Employe
         super(p);
 
         this.getState = this.getState.bind(this);
+        this.valueChanged = this.valueChanged.bind(this)
     }
 
     public render() {
@@ -16,8 +17,9 @@ export class EmployeePicker extends React.Component<EmployeePickerProps, Employe
         }
 
         var items = state.items.map(i => <option key={ `EmployeeOption${i.id}`} value={i.id}>{i.firstName} { i.lastName}</option>);
-        return <select key="employeePicker" className="form-select">
-            { items}
+        return <select key="employeePicker" className="form-select" onChange={ this.valueChanged} >
+            <option disabled selected>Select an employee....</option>
+            {items}
         </select>
     }
 
@@ -42,10 +44,19 @@ export class EmployeePicker extends React.Component<EmployeePickerProps, Employe
 
         return state;
     }
+
+    valueChanged(e:React.ChangeEvent) {
+        var select = $(e.target);
+        var selectedValue = select.val();
+        var numericValue = Number(selectedValue);
+        if (!isNaN(numericValue)) {
+            this.props.employeeSelected(numericValue);
+        }
+    }
 }
 
 export class EmployeePickerProps {
-
+    employeeSelected: (employeeId:number) => void;
 }
 
 class EmployeePickerState {

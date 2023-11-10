@@ -36,7 +36,7 @@ export class EmployeeTable extends React.Component<EmployeeTableProps, EmployeeT
     async componentDidMount() {
         var state = this.getState();
         if (!state.loaded) {
-            var items = await getEmployees(this.props.filter);
+            var items = await this.props.getData();
             state.loaded = true;
             state.items = items;
             this.setState(state);
@@ -57,7 +57,7 @@ export class EmployeeTable extends React.Component<EmployeeTableProps, EmployeeT
 }
 
 export class EmployeeTableProps {
-    filter: string | undefined;
+    getData:()=>Promise<IEmployeeDto[]>
 }
 
 class EmployeeTableState {
