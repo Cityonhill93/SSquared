@@ -7,7 +7,7 @@ using SSquared.Lib.Repositories;
 namespace SSquared.App.Controllers
 {
     [ApiController]
-    [Route("api/{v:apiVersion}/Employees")]
+    [Route("api/v{v:apiVersion}/Employees")]
     [Consumes("application/json")]
     [Produces("application/json")]
     public class EmployeeController : ControllerBase

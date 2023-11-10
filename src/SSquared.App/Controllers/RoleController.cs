@@ -7,7 +7,7 @@ namespace SSquared.App.Controllers
 {
     [ApiController]
     [ResponseCache(Duration = 300)] //5 minutes
-    [Route("api/{v:apiVersion}/Roles")]
+    [Route("api/v{v:apiVersion}/Roles")]
     [Consumes("application/json")]
     [Produces("application/json")]
     public class RoleController : Controller

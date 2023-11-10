@@ -3,7 +3,7 @@ import { IEmployeeDto } from "../DTO/IEmployeeDto";
 import { IExpandedEmployeeDto } from "../DTO/IExpandedEmployeeDto";
 import $, { data } from "jquery";
 
-const baseApiPath = "/api/1/Employees";
+const baseApiPath = "/api/v1/Employees";
 
 export async function addEmployee(dto:IAddEmployeeDto):Promise<IExpandedEmployeeDto> {
     var url = baseApiPath;

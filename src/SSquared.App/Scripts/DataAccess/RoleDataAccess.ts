@@ -1,7 +1,7 @@
 ﻿import $ from "jquery";
 import { IRoleDto } from "../DTO/IRoleDto";
 
-const baseApiPath = "/api/1/Roles";
+const baseApiPath = "/api/v1/Roles";
 
 export async function getRole(id: number): Promise<IRoleDto> {
     var url = `${baseApiPath}/${id}`;
