@@ -3,4 +3,5 @@
     lastName: string;
     employeeId: string;
     managerId: number | null;
+    roleIds:number[]
 }

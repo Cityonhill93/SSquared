@@ -31,12 +31,13 @@ class AddEmployeePage extends React.Component<AddEmployeePageProps, AddEmployeeP
         return <EmployeeEditor employee={employee} key="employeeEditor" onSave={ this.saveEmployee} ></EmployeeEditor>
     }
 
-    async saveEmployee(firstName: string, lastName: string, employeeId: string, managerId: number | null): Promise<void> {
+    async saveEmployee(firstName: string, lastName: string, employeeId: string, managerId: number | null, roleIds: number[]): Promise<void> {
         var dto: IAddEmployeeDto = {
             firstName: firstName,
             lastName: lastName,
             employeeId: employeeId,
-            managerId:managerId
+            managerId: managerId,
+            roleIds:roleIds
         };
 
         await addEmployee(dto);

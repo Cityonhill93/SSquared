@@ -55,7 +55,8 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
             state.firstName,
             state.lastName,
             state.employeeId,
-            state.managerId);
+            state.managerId,
+            state.roleIds);
     }
 
     employeeIdChanged(e: ChangeEvent) {
@@ -83,7 +84,8 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
                 employeeId: employee.employeeId,
                 firstName: employee.firstName,
                 lastName: employee.lastName,
-                managerId:employee.manager?.id
+                managerId: employee.manager?.id,
+                roleIds:[]  //TODO:Populate this from UI elements
             };
         }
 
@@ -107,7 +109,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
 
 export class EmployeeEditorProps {
     employee: IExpandedEmployeeDto;
-    onSave: (firstName: string, lastName: string, employeeId: string, managerId:number|null)=>Promise<void>;
+    onSave: (firstName: string, lastName: string, employeeId: string, managerId: number | null, roleIds: number[])=>Promise<void>;
 }
 
 class EmployeeEditorState {
@@ -115,4 +117,5 @@ class EmployeeEditorState {
     firstName: string;
     lastName: string;
     managerId: number | null;
+    roleIds: number[];
 }
