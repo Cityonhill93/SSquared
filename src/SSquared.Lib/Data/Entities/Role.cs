@@ -8,23 +8,27 @@
 
         public IEnumerable<EmployeeRole> EmployeeRoles { get; set; } = new List<EmployeeRole>();
 
+        public static Role Hero = new Role
+        {
+            Id = 1,
+            Name = "Hero"
+        };
+        public static Role Vilian = new Role
+        {
+            Id = 2,
+            Name = "Vilian"
+        };
+        public static Role Leader = new Role
+        {
+            Id = 3,
+            Name = "Leader"
+        };
+
         public static IEnumerable<Role> All = new List<Role>()
         {
-            new Role
-            {
-                Id=1,
-                Name="Hero"
-            },
-            new Role
-            {
-                Id=2,
-                Name="Vilian"
-            },
-            new Role
-            {
-                Id=3,
-                Name="Leader"
-            }
+            Hero,
+            Vilian,
+            Leader
         };
     }
 }
