@@ -16,3 +16,4 @@
 /src/*/SSquared.db
 /src/*/SSquared.db*
 /src/SSquared.App/node_modules
+/src/SSquared.App/wwwroot/js
