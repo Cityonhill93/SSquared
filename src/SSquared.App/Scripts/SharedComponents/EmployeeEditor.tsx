@@ -7,6 +7,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
     constructor(p: EmployeeEditorProps) {
         super(p);
 
+        this.buttonClicked = this.buttonClicked.bind(this);
         this.employeeIdChanged = this.employeeIdChanged.bind(this);
         this.firstNameChanged = this.firstNameChanged.bind(this);
         this.getState = this.getState.bind(this);
@@ -47,6 +48,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
 
     async buttonClicked() {
         var state = this.getState();
+
         await this.props.onSave(
             state.firstName,
             state.lastName,
