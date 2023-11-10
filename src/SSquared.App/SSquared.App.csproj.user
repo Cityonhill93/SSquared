@@ -6,6 +6,11 @@
     <RazorPage_SelectedScaffolderCategoryPath>root/Common/RazorPage</RazorPage_SelectedScaffolderCategoryPath>
   </PropertyGroup>
   <ItemGroup>
+    <TypeScriptCompile Update="Scripts\SharedComponents\EmployeeEditor.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
     <TypeScriptCompile Update="Scripts\Build.js">
       <SubType>Code</SubType>
     </TypeScriptCompile>
