@@ -12,10 +12,6 @@ export class EmployeeTable extends React.Component<EmployeeTableProps, EmployeeT
 
     public render() {
         var state = this.getState();
-        if (!state.loaded) {
-            return null;
-        }
-
         var employees = state.items;
         var rows = employees.map(e => <EmployeeTableRow employee={e} key={`EmployeeRow${e.id}`} ></EmployeeTableRow>);
 
@@ -33,22 +29,23 @@ export class EmployeeTable extends React.Component<EmployeeTableProps, EmployeeT
         </table>;
     }
 
-    async componentDidMount() {
+    async componentDidUpdate() {
         var state = this.getState();
-        if (!state.loaded) {
-            var items = await this.props.getData();
-            state.loaded = true;
-            state.items = items;
-            this.setState(state);
+        if (state.loaded) {
+            return;
         }
+        
+        state.items = await this.props.getData();
+        state.loaded = true;
+        this.setState(state);
     }
 
     getState(): EmployeeTableState {
         var state = this.state;
         if (!state) {
             state = {
-                items: [],
-                loaded:false
+                loaded: false,
+                items: []
             };
         }
 
@@ -61,8 +58,8 @@ export class EmployeeTableProps {
 }
 
 class EmployeeTableState {
-    items: IEmployeeDto[];
     loaded: boolean;
+    items: IEmployeeDto[];
 }
 
 class EmployeeTableRow extends React.Component<EmployeeTableRowProps, EmployeeTableRowState> {
