@@ -15,8 +15,8 @@ export class EmployeePicker extends React.Component<EmployeePickerProps, Employe
             return null;
         }
 
-        var items = state.items.map(i => <option value={i.id}>{i.firstName} { i.lastName}</option>);
-        return <select className="form-select">
+        var items = state.items.map(i => <option key={ `EmployeeOption${i.id}`} value={i.id}>{i.firstName} { i.lastName}</option>);
+        return <select key="employeePicker" className="form-select">
             { items}
         </select>
     }
