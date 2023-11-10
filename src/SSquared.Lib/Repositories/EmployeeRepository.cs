@@ -11,8 +11,13 @@ namespace SSquared.Lib.Repositories
         {
         }
 
-        public async Task<IEnumerable<Employee>> GetAsync(string query, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<Employee>> GetAsync(string? query, CancellationToken cancellationToken = default)
         {
+            if (string.IsNullOrEmpty(query))
+            {
+                return await GetQueryable().ToListAsync(cancellationToken);
+            }
+
             return await GetQueryable()
                 .Where(employee => employee.FirstName.Contains(query)
                     || employee.LastName.Contains(query)

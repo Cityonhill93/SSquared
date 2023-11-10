@@ -4,6 +4,6 @@ namespace SSquared.Lib.Repositories
 {
     public interface IEmployeeRepository : IRepository<Employee>
     {
-        Task<IEnumerable<Employee>> GetAsync(string query, CancellationToken cancellationToken = default);
+        Task<IEnumerable<Employee>> GetAsync(string? query, CancellationToken cancellationToken = default);
     }
 }
