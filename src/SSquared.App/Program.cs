@@ -1,6 +1,7 @@
 using Asp.Versioning;
 using Microsoft.EntityFrameworkCore;
 using SSquared.Lib.Data;
+using SSquared.Lib.Repositories.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddApiVersioning(e =>
     e.AssumeDefaultVersionWhenUnspecified = true;
     e.ReportApiVersions = true;
 });
+builder.Services.AddRepositories();
 
 var app = builder.Build();
 
