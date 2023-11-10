@@ -9,7 +9,11 @@ export async function addEmployee(dto:IAddEmployeeDto):Promise<IExpandedEmployee
     var url = baseApiPath;
     var json = JSON.stringify(dto);
 
-    return await $.post(url, json);
+    return await $.ajax(url, {
+        method: "POST",
+        contentType: "application/json",
+        data:json
+    });
 }
 
 export async function getEmployee(id:number): Promise<IExpandedEmployeeDto> {
