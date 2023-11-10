@@ -6,7 +6,9 @@ namespace SSquared.Lib.Repositories.Extensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            return services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            return services
+                .AddTransient<IEmployeeRepository, EmployeeRepository>()
+                .AddTransient<IRoleRepository, RoleRepository>();
         }
     }
 }
