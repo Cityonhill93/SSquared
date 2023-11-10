@@ -1,11 +1,15 @@
 ﻿const { build } = require("esbuild");
 
-build({
-    entryPoints: ["Scripts/EmployeeList.tsx"],
-    bundle: true,
-    globalName:"EmployeeList",
-    minify: true,   
-    outfile: "/wwwroot/js/EmployeeList.js",
-    platform: "browser",
-    sourcemap:true
-});
+buildFile("EmployeeList", "Scripts/EmployeeList.tsx", "/wwwroot/js/EmployeeList.js");
+
+function buildFile(globalName, sourcePath, targetPath) {
+    build({
+        entryPoints: [sourcePath],
+        bundle: true,
+        globalName: globalName,
+        minify: true,
+        outfile: targetPath,
+        platform: "browser",
+        sourcemap: true
+    });
+}
