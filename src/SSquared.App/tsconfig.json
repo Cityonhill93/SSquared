@@ -6,6 +6,9 @@
         "preserveConstEnums": true,
         "sourceMap": true,
         "esModuleInterop": true,
-        "lib": [ "es2015" ]
+        "lib": [
+          "es2016",
+          "dom"
+        ]
     }
 }
