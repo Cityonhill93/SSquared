@@ -24,7 +24,7 @@ namespace SSquared.Lib.Repositories
                     .Select(roleId => new EmployeeRole
                     {
                         RoleId = roleId
-                    })
+                    }).ToList()
             };
 
             _dbContext

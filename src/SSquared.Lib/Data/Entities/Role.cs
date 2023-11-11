@@ -6,7 +6,7 @@
 
         public string Name { get; set; } = default!;
 
-        public IEnumerable<EmployeeRole> EmployeeRoles { get; set; } = new List<EmployeeRole>();
+        public ICollection<EmployeeRole> EmployeeRoles { get; set; } = new List<EmployeeRole>();
 
         public static Role Hero = new Role
         {

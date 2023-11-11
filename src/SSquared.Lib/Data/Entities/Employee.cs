@@ -14,8 +14,8 @@
 
         public Employee? Manager { get; set; }
 
-        public IEnumerable<Employee> Employees { get; set; } = new List<Employee>();
+        public ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
-        public IEnumerable<EmployeeRole> EmployeeRoles { get; set; } = new List<EmployeeRole>();
+        public ICollection<EmployeeRole> EmployeeRoles { get; set; } = new List<EmployeeRole>();
     }
 }
