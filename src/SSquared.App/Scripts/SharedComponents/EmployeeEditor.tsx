@@ -44,7 +44,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
             </div>
             <div className="form-group">
                 <label>Roles</label>
-                <RolePicker key="roles" itemsChanged={ this.rolesChanged}></RolePicker>
+                <RolePicker key="roles" itemsChanged={this.rolesChanged} selectedRoles={state.roleIds} ></RolePicker>
             </div>
             <div>
                 <button className="btn btn-primary mt-3" type="button" onClick={ this.buttonClicked }>Save</button> 

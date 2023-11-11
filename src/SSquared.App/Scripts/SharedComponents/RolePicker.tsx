@@ -32,7 +32,7 @@ export class RolePicker extends React.Component<RolePickerProps, RolePickerState
         if (!state) {
             state = {
                 allRoles: [],
-                selectedRoleIds:[]
+                selectedRoleIds: this.props.selectedRoles
             };
         }
 
@@ -58,6 +58,7 @@ export class RolePicker extends React.Component<RolePickerProps, RolePickerState
 
 export class RolePickerProps {
     itemsChanged: (selectedRoleIds: number[]) => void;
+    selectedRoles:number[]
 }
 
 class RolePickerState {
