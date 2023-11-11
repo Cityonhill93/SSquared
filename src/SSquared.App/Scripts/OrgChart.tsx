@@ -48,9 +48,9 @@ class OrgChartNodeComponent extends React.Component<OrgChartNodeComponentProps, 
             case 0:
                 return "";
             case 1:
-                return "col-4";
+                return "col-xs-12 col-md-6 col-xl-4";
             case 2:
-                return "col-6";
+                return "col-xs-12 col-xl-6";
             default:
                 return "col-12";
         }
