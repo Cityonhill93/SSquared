@@ -20,6 +20,9 @@ class UpdateEmployeePage extends React.Component<UpdateEmployeePageProps, Update
 
     public render() {
         var state = this.getState();
+        if (!state.employee) {
+            return null;
+        }
 
         return <EmployeeEditor employee={state.employee} key="employeeEditor" onSave={this.saveEmployee} ></EmployeeEditor>
     }
