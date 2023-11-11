@@ -20,3 +20,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+label{
+    font-weight:bold;
+}
+
+.form-check-label{
+    font-weight:inherit;
+}
