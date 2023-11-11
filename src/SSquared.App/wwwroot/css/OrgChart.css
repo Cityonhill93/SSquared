@@ -15,6 +15,9 @@
 .org-chart-node .org-chart-node-children .org-chart-node .org-chart-node .org-chart-node-details {
   background-color: mediumpurple;
 }
+.org-chart-node .org-chart-node-children .org-chart-node .org-chart-node .org-chart-node .org-chart-node-details {
+  background-color: orange;
+}
 .org-chart-node .org-chart-node-children .org-chart-node .org-chart-node-details {
   background-color: green;
 }

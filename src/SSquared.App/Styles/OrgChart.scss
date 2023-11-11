@@ -15,12 +15,18 @@
         border: $border;
 
         .org-chart-node {
-            margin-bottom:1rem;
-            margin-top:1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
 
             .org-chart-node {
                 .org-chart-node-details {
                     background-color: mediumpurple;
+                }
+
+                .org-chart-node {
+                    .org-chart-node-details {
+                        background-color: orange
+                    }
                 }
             }
 
