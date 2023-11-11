@@ -29,3 +29,14 @@ export async function getEmployees(filter: string | undefined = null): Promise<I
 
     return $.get(url);
 }
+
+export async function updateEmployee(id: number, dto: IModifyEmployeeDto) {
+    var url = `${baseApiPath}/${id}`;
+    var json = JSON.stringify(dto);
+
+    return await $.ajax(url, {
+        method: "PUT",
+        contentType: "application/json",
+        data: json
+    });
+}
