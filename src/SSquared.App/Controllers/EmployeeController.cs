@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using SSquared.App.DTO;
 using SSquared.App.Extensions;
+using SSquared.Lib.Data.Entities;
+using SSquared.Lib.Exceptions;
 using SSquared.Lib.Repositories;
 
 namespace SSquared.App.Controllers
@@ -53,6 +55,23 @@ namespace SSquared.App.Controllers
 
             var dto = employee.ToExpandedEmployeeDto(Url);
             return Ok(dto);
+        }
+
+        [HttpGet("{id}/PotentialManagers")]
+        [ApiVersion("1")]
+        public async Task<IActionResult> GetPotentialManagers(int id)
+        {
+            try
+            {
+                var potentialManagers = await _employeeRepository.GetPotentialManagersAsync(id, HttpContext.RequestAborted);
+                var dtos = potentialManagers.Select(pm => pm.ToEmployeeDto(Url));
+
+                return Ok(dtos);
+            }
+            catch (NotFoundException<Employee>)
+            {
+                return NotFound();
+            }
         }
 
         [HttpGet("")]

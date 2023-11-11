@@ -28,7 +28,7 @@ export class EmployeePicker extends React.Component<EmployeePickerProps, Employe
     async componentDidMount() {
         var state = this.getState();
         if (!state.loaded) {
-            var employees = await getEmployees();
+            var employees = await this.props.getEmployees();
             state.loaded = true;
             state.items = employees;
             this.setState(state);
@@ -62,6 +62,7 @@ export class EmployeePicker extends React.Component<EmployeePickerProps, Employe
 
 export class EmployeePickerProps {
     employeeSelected: (employeeId: number | null) => void;
+    getEmployees:()=>Promise<IEmployeeDto[]>
     id: string;
     value?: number | null;
 }

@@ -47,6 +47,23 @@ namespace SSquared.Lib.Repositories
             return GetQueryableWithNavProperties().FirstOrDefaultAsync(employee => employee.Id == id, cancellationToken);
         }
 
+        public async Task<IEnumerable<Employee>> GetPotentialManagersAsync(int id, CancellationToken cancellationToken = default)
+        {
+            var employee = await GetAsync(id, cancellationToken);
+            if (employee is null)
+            {
+                throw new NotFoundException<Employee>(id);
+            }
+
+            var allOtherEmployees = await GetQueryableWithNavProperties()
+                .Where(e => e.Id != id)
+                .ToListAsync(cancellationToken);
+
+            return allOtherEmployees
+                .Where(e => employee.MayBeManagedBy(e))
+                .ToList();
+        }
+
         public async Task<Employee> UpdateAsync(int id, ModifyEmployeeArguments args, CancellationToken cancellationToken = default)
         {
             var existingEmployee = await GetAsync(id);

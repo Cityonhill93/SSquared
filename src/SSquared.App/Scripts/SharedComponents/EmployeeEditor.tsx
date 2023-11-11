@@ -3,6 +3,7 @@ import { IEmployeeDto } from "../DTO/IEmployeeDto";
 import { IExpandedEmployeeDto } from "../DTO/IExpandedEmployeeDto";
 import { EmployeePicker } from "./EmployeePicker";
 import { RolePicker } from "./RolePicker";
+import { getEmployees, getPotentialManagers } from "../DataAccess/EmployeeDataAccess";
 
 export class EmployeeEditor extends React.Component<EmployeeEditorProps, EmployeeEditorState> {
     constructor(p: EmployeeEditorProps) {
@@ -11,6 +12,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
         this.buttonClicked = this.buttonClicked.bind(this);
         this.employeeIdChanged = this.employeeIdChanged.bind(this);
         this.firstNameChanged = this.firstNameChanged.bind(this);
+        this.getManagers = this.getManagers.bind(this);
         this.getState = this.getState.bind(this);
         this.lastNameChanged = this.lastNameChanged.bind(this);
         this.managerChanged = this.managerChanged.bind(this);
@@ -40,7 +42,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
             </div>
             <div className="form-group">
                 <label htmlFor={managerInputId}>Manager</label>
-                <EmployeePicker key={employeeIdInputId} id={employeeIdInputId} employeeSelected={this.managerChanged} value={state.managerId} ></EmployeePicker>
+                <EmployeePicker key={employeeIdInputId} id={employeeIdInputId} employeeSelected={this.managerChanged} getEmployees={this.getManagers} value={state.managerId} ></EmployeePicker>
             </div>
             <div className="form-group">
                 <label>Roles</label>
@@ -77,6 +79,16 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
         var state = this.getState();
         state.firstName = value;
         this.setState(state);
+    }
+
+    getManagers():Promise<IEmployeeDto[]> {
+        var employee = this.props.employee;
+        if (employee.id == 0) {
+            return getEmployees();
+        }
+        else {
+            return getPotentialManagers(employee.id);
+        }
     }
 
     getState(): EmployeeEditorState {

@@ -30,6 +30,11 @@ export async function getEmployees(filter: string | undefined = null): Promise<I
     return $.get(url);
 }
 
+export async function getPotentialManagers(employeeId:number): Promise<IEmployeeDto[]> {
+    var url = `${baseApiPath}/${employeeId}/PotentialManagers`;
+    return $.get(url);
+}
+
 export async function updateEmployee(id: number, dto: IModifyEmployeeDto) {
     var url = `${baseApiPath}/${id}`;
     var json = JSON.stringify(dto);
