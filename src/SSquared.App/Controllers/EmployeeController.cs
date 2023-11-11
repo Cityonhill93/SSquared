@@ -88,7 +88,10 @@ namespace SSquared.App.Controllers
             try
             {
                 var potentialManagers = await _employeeRepository.GetPotentialManagersAsync(id, HttpContext.RequestAborted);
-                var dtos = potentialManagers.Select(pm => pm.ToEmployeeDto(Url));
+                var dtos = potentialManagers
+                    .Select(pm => pm.ToEmployeeDto(Url))
+                    .OrderBy(pm => pm.FirstName)
+                    .ThenBy(pm => pm.LastName);
 
                 return Ok(dtos);
             }
@@ -105,6 +108,8 @@ namespace SSquared.App.Controllers
             var employees = await _employeeRepository.GetAsync(filter, HttpContext.RequestAborted);
             var dtos = employees
                 .Select(e => e.ToEmployeeDto(Url))
+                .OrderBy(e => e.FirstName)
+                .ThenBy(e => e.LastName)
                 .ToList();
 
             return Ok(dtos);
