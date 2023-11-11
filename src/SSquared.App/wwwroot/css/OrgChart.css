@@ -3,6 +3,8 @@
   text-align: center;
 }
 .org-chart-node .org-chart-node-details {
+  background-color: blue;
+  color: white;
   padding: 1rem;
   border-bottom: solid 1px black;
 }
@@ -10,6 +12,12 @@
   display: inline-block;
   margin: 1rem;
   vertical-align: top;
+}
+.org-chart-node .org-chart-node .org-chart-node .org-chart-node-details {
+  background-color: mediumpurple;
+}
+.org-chart-node .org-chart-node .org-chart-node-details {
+  background-color: green;
 }
 .org-chart-node .org-chart-node .vertical-line {
   border-left: solid 1px black;
