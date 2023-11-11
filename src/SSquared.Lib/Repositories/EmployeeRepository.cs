@@ -51,10 +51,14 @@ namespace SSquared.Lib.Repositories
                 .ToListAsync(cancellationToken);
         }
 
-        protected override IQueryable<Employee> GetQueryable()
+        public override Task<Employee?> GetAsync(int id, CancellationToken cancellationToken = default)
         {
-            return base
-                .GetQueryable()
+            return GetQueryableWithNavProperties().FirstOrDefaultAsync(employee => employee.Id == id, cancellationToken);
+        }
+
+        protected IQueryable<Employee> GetQueryableWithNavProperties()
+        {
+            return GetQueryable()
                 .Include(e => e.Manager)
                 .Include(e => e.Employees)
                 .Include(e => e.EmployeeRoles)
