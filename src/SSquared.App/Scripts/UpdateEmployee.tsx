@@ -56,7 +56,7 @@ class UpdateEmployeePage extends React.Component<UpdateEmployeePageProps, Update
         await updateEmployee(this.props.employeeId, dto);
 
         alert("Employee Updated!");
-        window.location.href = "./";
+        window.location.href = "/";
     }
 }
 
