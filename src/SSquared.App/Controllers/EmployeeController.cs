@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using SSquared.App.DTO;
 using SSquared.App.Extensions;
+using SSquared.Lib.Data.Entities;
+using SSquared.Lib.Exceptions;
 using SSquared.Lib.Repositories;
 
 namespace SSquared.App.Controllers
@@ -65,6 +67,26 @@ namespace SSquared.App.Controllers
                 .ToList();
 
             return Ok(dtos);
+        }
+
+        [HttpPut("{id}")]
+        [ApiVersion("1")]
+        public async Task<IActionResult> UpdateEmployee([FromRoute] int id, [FromBody] ModifyEmployeeDto employee)
+        {
+            try
+            {
+                var updatedEmployee = await _employeeRepository.UpdateAsync(
+                    id: id,
+                    args: employee.ToModifyEmployeeArguments(),
+                    HttpContext.RequestAborted);
+                var dto = updatedEmployee.ToExpandedEmployeeDto(Url);
+
+                return Ok(dto);
+            }
+            catch (NotFoundException<Employee>)
+            {
+                return NotFound();
+            }
         }
     }
 }

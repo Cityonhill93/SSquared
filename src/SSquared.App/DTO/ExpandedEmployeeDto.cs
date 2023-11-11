@@ -3,6 +3,18 @@
     public record ExpandedEmployeeDto : EmployeeDto
     {
         public ExpandedEmployeeDto(
+            EmployeeDto baseDto,
+            EmployeeDto? manager,
+            IEnumerable<EmployeeDto> employees,
+            IEnumerable<RoleDto> roles)
+            : base(baseDto)
+        {
+            Employees = employees;
+            Manager = manager;
+            Roles = roles;
+        }
+
+        public ExpandedEmployeeDto(
             int id,
             string firstName,
             string lastName,
@@ -10,12 +22,11 @@
             EmployeeDto? manager,
             IEnumerable<EmployeeDto> employees,
             IEnumerable<RoleDto> roles,
-            Uri getUrl)
-            : base(id, firstName, lastName, employeeId, getUrl)
+            Uri getUrl,
+            Uri updateUrl)
+            : this(new EmployeeDto(id, firstName, lastName, employeeId, getUrl, updateUrl), manager, employees, roles)
         {
-            Employees = employees;
-            Manager = manager;
-            Roles = roles;
+
         }
 
         public IEnumerable<EmployeeDto> Employees { get; }

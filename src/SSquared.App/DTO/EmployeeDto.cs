@@ -5,5 +5,6 @@
         string FirstName,
         string LastName,
         string EmployeeId,
-        Uri GetUrl);
+        Uri GetUrl,
+        Uri UpdateUri);
 }

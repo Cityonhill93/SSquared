@@ -11,7 +11,8 @@ namespace SSquared.App.Extensions
             FirstName: employee.FirstName,
             LastName: employee.LastName,
             EmployeeId: employee.EmployeeId,
-            GetUrl: urlHelper.API_GetEmployee(employee.Id));
+            GetUrl: urlHelper.API_GetEmployee(employee.Id),
+            UpdateUri: urlHelper.API_UpdateEmployee(employee.Id));
 
         public static ExpandedEmployeeDto ToExpandedEmployeeDto(this Employee employee, IUrlHelper urlHelper)
         {
@@ -24,14 +25,10 @@ namespace SSquared.App.Extensions
                 .Where(r => distinctRoleIds.Contains(r.Id));
 
             return new ExpandedEmployeeDto(
-            id: employee.Id,
-            firstName: employee.FirstName,
-            lastName: employee.LastName,
-            employeeId: employee.EmployeeId,
-            manager: employee.Manager?.ToEmployeeDto(urlHelper),
-            employees: employee.Employees.Select(e => e.ToEmployeeDto(urlHelper)),
-            roles: roles.Select(r => r.ToRoleDto()),
-            getUrl: urlHelper.API_GetEmployee(employee.Id));
+                baseDto: employee.ToEmployeeDto(urlHelper),
+                manager: employee.Manager?.ToEmployeeDto(urlHelper),
+                employees: employee.Employees.Select(e => e.ToEmployeeDto(urlHelper)),
+                roles: roles.Select(r => r.ToRoleDto()));
         }
     }
 }

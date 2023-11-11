@@ -4,4 +4,5 @@
     lastName: string;
     employeeId: string;
     getUrl: string;
+    updateUri: string;
 }

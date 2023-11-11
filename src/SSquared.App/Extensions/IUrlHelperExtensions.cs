@@ -38,6 +38,17 @@ namespace SSquared.App.Extensions
             return new Uri(strUrl!, UriKind.Relative);
         }
 
+        public static Uri API_UpdateEmployee(this IUrlHelper urlHelper, int id)
+        {
+            var values = new { id = id };
+            var strUrl = urlHelper.Action(
+                action: nameof(EmployeeController.UpdateEmployee),
+                controller: nameof(EmployeeController).Replace(CONTROLLER_SUFFIX, string.Empty),
+                values: values);
+
+            return new Uri(strUrl!, UriKind.Relative);
+        }
+
         public static Uri AddEmployee(this IUrlHelper urlHelper)
         {
             var strUrl = urlHelper.Page(
