@@ -2,6 +2,7 @@
 import { IEmployeeDto } from "../DTO/IEmployeeDto";
 import { IExpandedEmployeeDto } from "../DTO/IExpandedEmployeeDto";
 import $, { data } from "jquery";
+import { IOrgChartNode } from "../DTO/IOrgChartNode";
 
 const baseApiPath = "/api/v1/Employees";
 
@@ -18,6 +19,11 @@ export async function addEmployee(dto: IModifyEmployeeDto):Promise<IExpandedEmpl
 
 export async function getEmployee(id:number): Promise<IExpandedEmployeeDto> {
     var url = `${baseApiPath}/${id}`;
+    return $.get(url);
+}
+
+export async function getEmployeeOrgChart(id: number): Promise<IOrgChartNode> {
+    var url = `${baseApiPath}/${id}/OrgChart`;
     return $.get(url);
 }
 
