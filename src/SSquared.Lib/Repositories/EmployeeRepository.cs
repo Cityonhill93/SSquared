@@ -61,6 +61,8 @@ namespace SSquared.Lib.Repositories
 
             return allOtherEmployees
                 .Where(e => employee.MayBeManagedBy(e))
+                .OrderBy(e => e.FirstName)
+                .ThenBy(e => e.LastName)
                 .ToList();
         }
 
