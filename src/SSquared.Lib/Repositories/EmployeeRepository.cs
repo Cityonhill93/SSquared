@@ -46,6 +46,8 @@ namespace SSquared.Lib.Repositories
                 .Where(employee => employee.FirstName.Contains(query)
                     || employee.LastName.Contains(query)
                     || employee.EmployeeId.Contains(query))
+                .OrderBy(employee => employee.FirstName)
+                .ThenBy(employee => employee.LastName)
                 .ToListAsync(cancellationToken);
         }
 
