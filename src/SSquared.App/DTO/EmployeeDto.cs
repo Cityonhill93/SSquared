@@ -7,5 +7,6 @@
         string EmployeeId,
         Uri GetUrl,
         Uri UpdateUrl,
+        Uri ViewOrgChartUrl,
         Uri ViewUrl);
 }

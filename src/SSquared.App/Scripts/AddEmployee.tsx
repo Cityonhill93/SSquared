@@ -25,6 +25,7 @@ class AddEmployeePage extends React.Component<AddEmployeePageProps, AddEmployeeP
             employeeId: "",
             getUrl: "",
             updateUrl: "",
+            viewOrgChartUrl:"",
             viewUrl:"",
             employees: [],
             manager: null,

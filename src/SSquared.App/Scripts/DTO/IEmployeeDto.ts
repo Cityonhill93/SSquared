@@ -5,5 +5,6 @@
     employeeId: string;
     getUrl: string;
     updateUrl: string;
+    viewOrgChartUrl:string
     viewUrl:string
 }

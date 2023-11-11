@@ -47,6 +47,8 @@ class EmployeeTableRow extends React.Component<EmployeeTableRowProps, EmployeeTa
             <td>{employee.lastName}</td>
             <td>
                 <a className="btn btn-primary" href={employee.viewUrl}>Edit</a>
+                &nbsp;
+                <a className="btn btn-secondary" href={employee.viewOrgChartUrl}>Org Chart</a>
             </td>
         </tr>;
     }

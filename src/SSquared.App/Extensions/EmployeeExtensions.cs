@@ -13,6 +13,7 @@ namespace SSquared.App.Extensions
             EmployeeId: employee.EmployeeId,
             GetUrl: urlHelper.API_GetEmployee(employee.Id),
             UpdateUrl: urlHelper.API_UpdateEmployee(employee.Id),
+            ViewOrgChartUrl: urlHelper.OrgChart(employee.Id),
             ViewUrl: urlHelper.UpdateEmployee(employee.Id));
 
         public static ExpandedEmployeeDto ToExpandedEmployeeDto(this Employee employee, IUrlHelper urlHelper)

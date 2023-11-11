@@ -57,6 +57,16 @@ namespace SSquared.App.Extensions
             return new Uri(strUrl!, UriKind.Relative);
         }
 
+        public static Uri OrgChart(this IUrlHelper urlHelper, int id)
+        {
+            var values = new { id = id, v = (int?)null };   //For some reason, the API versioning wants to put the version number here....set it to null until you figure out why it is doing this
+            var strUrl = urlHelper.Page(
+                pageName: "/OrgChart",
+                values: values);
+
+            return new Uri(strUrl!, UriKind.Relative);
+        }
+
         public static Uri UpdateEmployee(this IUrlHelper urlHelper, int id)
         {
             var values = new { id = id, v = (int?)null };   //For some reason, the API versioning wants to put the version number here....set it to null until you figure out why it is doing this
