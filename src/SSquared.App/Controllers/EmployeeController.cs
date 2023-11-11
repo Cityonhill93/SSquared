@@ -4,6 +4,7 @@ using SSquared.App.DTO;
 using SSquared.App.Extensions;
 using SSquared.Lib.Data.Entities;
 using SSquared.Lib.Exceptions;
+using SSquared.Lib.OrgChart.Services;
 using SSquared.Lib.Repositories;
 
 namespace SSquared.App.Controllers
@@ -14,12 +15,14 @@ namespace SSquared.App.Controllers
     [Produces("application/json")]
     public class EmployeeController : ControllerBase
     {
-        public EmployeeController(IEmployeeRepository employeeRepository)
+        public EmployeeController(IEmployeeRepository employeeRepository, IOrgChartService orgChartService)
         {
             _employeeRepository = employeeRepository;
+            _orgChartService = orgChartService;
         }
 
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IOrgChartService _orgChartService;
 
         [HttpPost("")]
         [ApiVersion("1")]
@@ -59,6 +62,22 @@ namespace SSquared.App.Controllers
             }
 
             var dto = employee.ToExpandedEmployeeDto(Url);
+            return Ok(dto);
+        }
+
+        [HttpGet("{id}/OrgChart")]
+        [ApiVersion("1")]
+        public async Task<IActionResult> GetEmployeeOrgChart(int id)
+        {
+            var employee = await _employeeRepository.GetAsync(id, HttpContext.RequestAborted);
+            if (employee is null)
+            {
+                return NotFound();
+            }
+
+            var orgChart = await _orgChartService.GetOrgChartForEmployeeAsync(employee, HttpContext.RequestAborted);
+            var dto = orgChart.ToOrgChartNodeDto();
+
             return Ok(dto);
         }
 

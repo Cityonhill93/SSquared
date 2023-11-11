@@ -1,6 +1,7 @@
 using Asp.Versioning;
 using Microsoft.EntityFrameworkCore;
 using SSquared.Lib.Data;
+using SSquared.Lib.OrgChart.Extensions;
 using SSquared.Lib.Repositories.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.AddApiVersioning(e =>
     e.ReportApiVersions = true;
 });
 builder.Services.AddRepositories();
+builder.Services.AddOrgChartService();
 
 var app = builder.Build();
 
