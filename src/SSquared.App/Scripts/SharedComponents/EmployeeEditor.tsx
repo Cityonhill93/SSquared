@@ -4,6 +4,7 @@ import { IExpandedEmployeeDto } from "../DTO/IExpandedEmployeeDto";
 import { EmployeePicker } from "./EmployeePicker";
 import { RolePicker } from "./RolePicker";
 import { getEmployees, getPotentialManagers } from "../DataAccess/EmployeeDataAccess";
+import { isNullOrWhiteSpace } from "../DataTools/StringHelpers";
 
 export class EmployeeEditor extends React.Component<EmployeeEditorProps, EmployeeEditorState> {
     constructor(p: EmployeeEditorProps) {
@@ -17,6 +18,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
         this.lastNameChanged = this.lastNameChanged.bind(this);
         this.managerChanged = this.managerChanged.bind(this);
         this.rolesChanged = this.rolesChanged.bind(this);
+        this.isValid = this.isValid.bind(this);
     }
 
     public render() {
@@ -26,6 +28,9 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
         const managerInputId = "managerId";
 
         var state = this.getState();
+        var saveButton = (this.isValid()
+            ? <button className="btn btn-primary mt-3" type="button" onClick={this.buttonClicked}>Save</button> 
+            : <button className="btn btn-primary mt-3" type="button" disabled>Save</button>);
 
         return <div key={`employeeEditor${this.props.employee.id}`}>
             <div className="form-group">
@@ -49,7 +54,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
                 <RolePicker key="roles" itemsChanged={this.rolesChanged} selectedRoles={state.roleIds} ></RolePicker>
             </div>
             <div>
-                <button className="btn btn-primary mt-3" type="button" onClick={ this.buttonClicked }>Save</button> 
+                {saveButton}
             </div>
         </div>;
     }
@@ -126,6 +131,14 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
         var state = this.getState();
         state.roleIds = selectedRoleIds;
         this.setState(state);
+    }
+
+    isValid() {
+        var state = this.getState();
+
+        return !isNullOrWhiteSpace(state.firstName)
+            && !isNullOrWhiteSpace(state.lastName)
+            && !isNullOrWhiteSpace(state.employeeId);
     }
 }
 

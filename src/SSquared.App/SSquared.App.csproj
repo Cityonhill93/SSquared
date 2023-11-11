@@ -15,6 +15,7 @@
     <None Remove="Scripts\Build.js" />
     <None Remove="Scripts\DataAccess\EmployeeDataAccess.ts" />
     <None Remove="Scripts\DataAccess\RoleDataAccess.ts" />
+    <None Remove="Scripts\DataTools\StringHelpers.ts" />
     <None Remove="Scripts\DTO\IEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IExpandedEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IModifyEmployeeDto.ts" />
@@ -40,6 +41,7 @@
     <TypeScriptCompile Include="Scripts\Build.js" />
     <TypeScriptCompile Include="Scripts\DataAccess\EmployeeDataAccess.ts" />
     <TypeScriptCompile Include="Scripts\DataAccess\RoleDataAccess.ts" />
+    <TypeScriptCompile Include="Scripts\DataTools\StringHelpers.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IModifyEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IExpandedEmployeeDto.ts" />

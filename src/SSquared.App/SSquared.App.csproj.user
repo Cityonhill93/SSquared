@@ -8,6 +8,11 @@
     <Controller_SelectedScaffolderCategoryPath>root/Common/MVC/Controller</Controller_SelectedScaffolderCategoryPath>
   </PropertyGroup>
   <ItemGroup>
+    <TypeScriptCompile Update="Scripts\DataTools\StringHelpers.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
     <TypeScriptCompile Update="Scripts\UpdateEmployee.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
