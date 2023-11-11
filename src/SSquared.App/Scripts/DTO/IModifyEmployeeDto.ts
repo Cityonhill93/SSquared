@@ -1,4 +1,4 @@
-﻿export interface IAddEmployeeDto {
+﻿export interface IModifyEmployeeDto {
     firstName: string;
     lastName: string;
     employeeId: string;

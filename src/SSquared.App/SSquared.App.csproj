@@ -17,8 +17,8 @@
     <None Remove="Scripts\DataAccess\RoleDataAccess.ts" />
     <None Remove="Scripts\DTO\IEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IExpandedEmployeeDto.ts" />
+    <None Remove="Scripts\DTO\IModifyEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IRoleDto.ts" />
-    <None Remove="Scripts\DTO\IUpsertEmployeeDto.ts" />
     <None Remove="Scripts\EmployeeList.tsx" />
     <None Remove="Scripts\SharedComponents\EmployeeEditor.tsx" />
     <None Remove="Scripts\SharedComponents\EmployeePicker.tsx" />
@@ -39,7 +39,7 @@
     <TypeScriptCompile Include="Scripts\Build.js" />
     <TypeScriptCompile Include="Scripts\DataAccess\EmployeeDataAccess.ts" />
     <TypeScriptCompile Include="Scripts\DataAccess\RoleDataAccess.ts" />
-    <TypeScriptCompile Include="Scripts\DTO\IUpsertEmployeeDto.ts" />
+    <TypeScriptCompile Include="Scripts\DTO\IModifyEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IExpandedEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IRoleDto.ts" />

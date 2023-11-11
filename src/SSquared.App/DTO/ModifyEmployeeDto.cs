@@ -1,6 +1,6 @@
 ﻿namespace SSquared.App.DTO
 {
-    public record UpsertEmployeeDto(
+    public record ModifyEmployeeDto(
         string FirstName,
         string LastName,
         string EmployeeId)

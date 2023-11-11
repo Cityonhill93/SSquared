@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SSquared.Lib.Arguments;
 using SSquared.Lib.Data;
 using SSquared.Lib.Data.Entities;
 using SSquared.Lib.Exceptions;
@@ -12,21 +13,10 @@ namespace SSquared.Lib.Repositories
         {
         }
 
-        public async Task<Employee> AddAsync(string firstName, string lastName, string employeeId, int? managerId, IEnumerable<int> roleIds, CancellationToken cancellationToken = default)
+        public async Task<Employee> AddAsync(ModifyEmployeeArguments args, CancellationToken cancellationToken = default)
         {
-            var employee = new Employee
-            {
-                FirstName = firstName,
-                LastName = lastName,
-                EmployeeId = employeeId,
-                ManagerId = managerId,
-                EmployeeRoles = roleIds
-                    .Distinct()
-                    .Select(roleId => new EmployeeRole
-                    {
-                        RoleId = roleId
-                    }).ToList()
-            };
+            var employee = new Employee();
+            employee.Modify(args);
 
             _dbContext
                 .Employees
@@ -57,7 +47,7 @@ namespace SSquared.Lib.Repositories
             return GetQueryableWithNavProperties().FirstOrDefaultAsync(employee => employee.Id == id, cancellationToken);
         }
 
-        public async Task<Employee> UpdateAsync(int id, string firstName, string lastName, string employeeId, int? managerId, IEnumerable<int> roleIds, CancellationToken cancellationToken = default)
+        public async Task<Employee> UpdateAsync(int id, ModifyEmployeeArguments args, CancellationToken cancellationToken = default)
         {
             var existingEmployee = await GetAsync(id);
             if (existingEmployee is null)
@@ -65,27 +55,7 @@ namespace SSquared.Lib.Repositories
                 throw new NotFoundException<Employee>(id);
             }
 
-            existingEmployee.FirstName = firstName;
-            existingEmployee.LastName = lastName;
-            existingEmployee.EmployeeId = employeeId;
-            existingEmployee.ManagerId = managerId;
-
-            var rolesToRemove = existingEmployee
-                .EmployeeRoles
-                .Where(r => !roleIds.Contains(r.RoleId))
-                .ToList();
-            foreach (var role in rolesToRemove)
-            {
-                existingEmployee.EmployeeRoles.Remove(role);
-            }
-
-            var rolesToAdd = roleIds
-                .Where(id => !existingEmployee.EmployeeRoles.Any(role => role.Id == id))
-                .Select(id => new EmployeeRole
-                {
-                    RoleId = id
-                })
-                .ToList();
+            existingEmployee.Modify(args);
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 

@@ -23,7 +23,7 @@
     </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Update="Scripts\DTO\IUpsertEmployeeDto.ts">
+    <TypeScriptCompile Update="Scripts\DTO\IModifyEmployeeDto.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
   </ItemGroup>

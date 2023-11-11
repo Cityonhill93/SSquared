@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import { addEmployee } from "./DataAccess/EmployeeDataAccess";
-import { IAddEmployeeDto } from "./DTO/IUpsertEmployeeDto";
+import { IModifyEmployeeDto } from "./DTO/IModifyEmployeeDto";
 import { EmployeeEditor } from "./SharedComponents/EmployeeEditor";
 import { IExpandedEmployeeDto } from "./DTO/IExpandedEmployeeDto";
 import ReactDOM from "react-dom";
@@ -33,7 +33,7 @@ class AddEmployeePage extends React.Component<AddEmployeePageProps, AddEmployeeP
     }
 
     async saveEmployee(firstName: string, lastName: string, employeeId: string, managerId: number | null, roleIds: number[]): Promise<void> {
-        var dto: IAddEmployeeDto = {
+        var dto: IModifyEmployeeDto = {
             firstName: firstName,
             lastName: lastName,
             employeeId: employeeId,

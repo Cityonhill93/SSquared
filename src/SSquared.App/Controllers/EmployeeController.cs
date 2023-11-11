@@ -21,7 +21,7 @@ namespace SSquared.App.Controllers
 
         [HttpPost("")]
         [ApiVersion("1")]
-        public async Task<IActionResult> AddEmployee([FromBody] UpsertEmployeeDto employee)
+        public async Task<IActionResult> AddEmployee([FromBody] ModifyEmployeeDto employee)
         {
             if (employee.ManagerId is not null)
             {
@@ -34,11 +34,7 @@ namespace SSquared.App.Controllers
             }
 
             var createdEmployee = await _employeeRepository.AddAsync(
-                firstName: employee.FirstName,
-                lastName: employee.LastName,
-                employeeId: employee.EmployeeId,
-                managerId: employee.ManagerId,
-                roleIds: employee.RoleIds,
+                args: employee.ToModifyEmployeeArguments(),
                 cancellationToken: HttpContext.RequestAborted);
             var createdDto = createdEmployee.ToExpandedEmployeeDto(Url);
 
