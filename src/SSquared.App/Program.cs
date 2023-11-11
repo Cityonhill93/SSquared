@@ -16,7 +16,7 @@ builder.Services.AddApiVersioning(e =>
     e.ReportApiVersions = true;
 });
 builder.Services.AddRepositories();
-builder.Services.AddOrgChartService();
+builder.Services.AddSSquaredServices();
 
 var app = builder.Build();
 

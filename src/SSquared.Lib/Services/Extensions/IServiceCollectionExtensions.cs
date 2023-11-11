@@ -4,9 +4,11 @@ namespace SSquared.Lib.Services.Extensions
 {
     public static class IServiceCollectionExtensions
     {
-        public static IServiceCollection AddOrgChartService(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddSSquaredServices(this IServiceCollection serviceCollection)
         {
-            return serviceCollection.AddTransient<IOrgChartService, OrgChartService>();
+            return serviceCollection
+                .AddTransient<IOrgChartService, OrgChartService>()
+                .AddTransient<IManagerService, ManagerService>();
 
         }
     }

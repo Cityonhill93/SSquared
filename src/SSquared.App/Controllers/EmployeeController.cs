@@ -15,13 +15,15 @@ namespace SSquared.App.Controllers
     [Produces("application/json")]
     public class EmployeeController : ControllerBase
     {
-        public EmployeeController(IEmployeeRepository employeeRepository, IOrgChartService orgChartService)
+        public EmployeeController(IEmployeeRepository employeeRepository, IManagerService managerValidationService, IOrgChartService orgChartService)
         {
             _employeeRepository = employeeRepository;
+            _managerService = managerValidationService;
             _orgChartService = orgChartService;
         }
 
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IManagerService _managerService;
         private readonly IOrgChartService _orgChartService;
 
         [HttpPost("")]
@@ -87,7 +89,13 @@ namespace SSquared.App.Controllers
         {
             try
             {
-                var potentialManagers = await _employeeRepository.GetPotentialManagersAsync(id, HttpContext.RequestAborted);
+                var employee = await _employeeRepository.GetAsync(id, HttpContext.RequestAborted);
+                if (employee is null)
+                {
+                    return NotFound();
+                }
+
+                var potentialManagers = await _managerService.GetValidManagersForEmployee(employee, HttpContext.RequestAborted);
                 var dtos = potentialManagers
                     .Select(pm => pm.ToEmployeeDto(Url))
                     .OrderBy(pm => pm.FirstName)
@@ -138,7 +146,12 @@ namespace SSquared.App.Controllers
                 {
                     return BadRequest("Invalid manager ID");
                 }
-                else if (!existingEmployee.MayBeManagedBy(manager))
+
+                var managerIsValid = await _managerService.MayBeManagedByAsync(
+                    employee: existingEmployee,
+                    potentialManager: manager,
+                    cancellationToken: HttpContext.RequestAborted);
+                if (!managerIsValid)
                 {
                     return BadRequest("Invalid manager!");
                 }
