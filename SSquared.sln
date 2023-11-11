@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSquared.App", "src\SSquared.App\SSquared.App.csproj", "{B03BC285-80E1-456E-9966-28D76E00D455}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSquared.Lib", "src\SSquared.Lib\SSquared.Lib.csproj", "{69B60461-638C-4D6F-A7EB-46C869498F57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSquared.Lib", "src\SSquared.Lib\SSquared.Lib.csproj", "{69B60461-638C-4D6F-A7EB-46C869498F57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSquared.Lib.UnitTests", "test\SSquared.Lib.UnitTests\SSquared.Lib.UnitTests.csproj", "{897F78C1-E9D3-4174-9453-067E44C8294F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSquared.Lib.UnitTests", "test\SSquared.Lib.UnitTests\SSquared.Lib.UnitTests.csproj", "{897F78C1-E9D3-4174-9453-067E44C8294F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

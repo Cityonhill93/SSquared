@@ -1,0 +1,20 @@
+﻿@page
+@model SSquared.App.Pages.OrgChartModel
+@{
+    ViewData["Title"] = "Org Chart";
+}
+
+<h1>Org Chart</h1>
+
+<div class="react-wrapper">
+</div>
+
+@section Scripts{
+
+    <script type="text/javascript" src="~/js/OrgChart.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            OrgChart.init(@Model.Id);
+        });
+    </script>
+}

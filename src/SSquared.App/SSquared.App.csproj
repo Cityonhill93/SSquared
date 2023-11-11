@@ -19,8 +19,10 @@
     <None Remove="Scripts\DTO\IEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IExpandedEmployeeDto.ts" />
     <None Remove="Scripts\DTO\IModifyEmployeeDto.ts" />
+    <None Remove="Scripts\DTO\IOrgChartNode.ts" />
     <None Remove="Scripts\DTO\IRoleDto.ts" />
     <None Remove="Scripts\EmployeeList.tsx" />
+    <None Remove="Scripts\OrgChart.tsx" />
     <None Remove="Scripts\SharedComponents\EmployeeEditor.tsx" />
     <None Remove="Scripts\SharedComponents\EmployeePicker.tsx" />
     <None Remove="Scripts\SharedComponents\EmployeeTable.tsx" />
@@ -46,7 +48,9 @@
     <TypeScriptCompile Include="Scripts\DTO\IEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IExpandedEmployeeDto.ts" />
     <TypeScriptCompile Include="Scripts\DTO\IRoleDto.ts" />
+    <TypeScriptCompile Include="Scripts\DTO\IOrgChartNode.ts" />
     <TypeScriptCompile Include="Scripts\EmployeeList.tsx" />
+    <TypeScriptCompile Include="Scripts\OrgChart.tsx" />
     <TypeScriptCompile Include="Scripts\SharedComponents\EmployeeEditor.tsx" />
     <TypeScriptCompile Include="Scripts\SharedComponents\EmployeePicker.tsx" />
     <TypeScriptCompile Include="Scripts\SharedComponents\EmployeeTable.tsx" />
