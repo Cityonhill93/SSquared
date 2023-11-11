@@ -29,12 +29,25 @@ namespace SSquared.Lib.Data.Migrations
             var anakinId = currentId++;
             SeedEmployee(anakinId, "Anakin", "Skywalker", "GE00000002", palpsId, new List<Role> { Role.Vilian, Role.Leader });
 
+
             var starkillerId = currentId++;
             SeedEmployee(starkillerId, "Galan", "Merek", "GE00000003", anakinId, new List<Role> { Role.Hero, Role.Vilian, Role.Leader });
             SeedEmployee(currentId++, "Juno", "Eclipse", "GE00000004", starkillerId, new List<Role> { Role.Hero, Role.Vilian });
 
             SeedEmployee(currentId++, "Mas", "Amedda", "GE00000005", palpsId, new List<Role> { Role.Vilian });
             SeedEmployee(currentId++, "Mara", "Jade", "GE00000006", palpsId, new List<Role> { Role.Hero, Role.Vilian });
+
+            var grandInquisitorId = currentId++;
+            SeedEmployee(grandInquisitorId, "Grand", "Inquisitor", "GE00000007", anakinId, new List<Role> { Role.Leader, Role.Vilian });
+            SeedEmployee(currentId++, "Second", "Sister", "GE00000008", grandInquisitorId, new List<Role> { Role.Vilian });
+            SeedEmployee(currentId++, "Third", "Sister", "GE00000009", grandInquisitorId, new List<Role> { Role.Vilian });
+            SeedEmployee(currentId++, "Fifth", "Brother", "GE00000010", grandInquisitorId, new List<Role> { Role.Vilian });
+            SeedEmployee(currentId++, "Sixth", "Brother", "GE00000011", grandInquisitorId, new List<Role> { Role.Vilian });
+            SeedEmployee(currentId++, "Seventh", "Sister", "GE00000012", grandInquisitorId, new List<Role> { Role.Vilian });
+            SeedEmployee(currentId++, "Eighth", "Brother", "GE00000013", grandInquisitorId, new List<Role> { Role.Vilian });
+            SeedEmployee(currentId++, "Ninth", "Sister", "GE00000014", grandInquisitorId, new List<Role> { Role.Vilian });
+            SeedEmployee(currentId++, "Tenth", "Brother", "GE00000015", grandInquisitorId, new List<Role> { Role.Vilian });
+            SeedEmployee(currentId++, "Thirteenth", "Sister", "GE00000011", grandInquisitorId, new List<Role> { Role.Vilian });
 
             //TMNT
             var splinterId = currentId++;
