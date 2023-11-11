@@ -52,7 +52,17 @@ namespace SSquared.App.Extensions
         public static Uri AddEmployee(this IUrlHelper urlHelper)
         {
             var strUrl = urlHelper.Page(
-                pageName: "AddEmployee");
+                pageName: "/AddEmployee");
+
+            return new Uri(strUrl!, UriKind.Relative);
+        }
+
+        public static Uri UpdateEmployee(this IUrlHelper urlHelper, int id)
+        {
+            var values = new { id = id };
+            var strUrl = urlHelper.Page(
+                pageName: "/UpdateEmployee",
+                values: values);
 
             return new Uri(strUrl!, UriKind.Relative);
         }

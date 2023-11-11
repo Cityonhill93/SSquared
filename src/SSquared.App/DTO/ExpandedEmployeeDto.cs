@@ -23,8 +23,9 @@
             IEnumerable<EmployeeDto> employees,
             IEnumerable<RoleDto> roles,
             Uri getUrl,
-            Uri updateUrl)
-            : this(new EmployeeDto(id, firstName, lastName, employeeId, getUrl, updateUrl), manager, employees, roles)
+            Uri updateUrl,
+            Uri viewUrl)
+            : this(new EmployeeDto(id, firstName, lastName, employeeId, getUrl, updateUrl, viewUrl), manager, employees, roles)
         {
 
         }

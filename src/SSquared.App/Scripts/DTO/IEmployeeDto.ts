@@ -5,4 +5,5 @@
     employeeId: string;
     getUrl: string;
     updateUrl: string;
+    viewUrl:string
 }

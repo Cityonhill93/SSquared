@@ -18,6 +18,7 @@ export class EmployeeTable extends React.Component<EmployeeTableProps, EmployeeT
                     <th>Employee ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,10 +41,13 @@ class EmployeeTableRow extends React.Component<EmployeeTableRowProps, EmployeeTa
     public render() {
         var employee = this.props.employee;
 
-        return <tr>
+        return <tr className="mt-1 mb-1">
             <td>{employee.employeeId}</td>
             <td>{employee.firstName}</td>
             <td>{employee.lastName}</td>
+            <td>
+                <a className="btn btn-primary" href={employee.viewUrl}>Edit</a>
+            </td>
         </tr>;
     }
 }
