@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="compilerconfig.json" />
     <Content Remove="tsconfig.json" />
   </ItemGroup>
 
@@ -28,6 +29,19 @@
     <None Remove="Scripts\SharedComponents\EmployeeTable.tsx" />
     <None Remove="Scripts\SharedComponents\RolePicker.tsx" />
     <None Remove="Scripts\UpdateEmployee.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\..\..\wwwroot\css\OrgChart.css" Link="OrgChart.css" />
+    <Content Include="..\..\..\..\wwwroot\css\OrgChart.min.css" Link="OrgChart.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
   </ItemGroup>
 
   <ItemGroup>

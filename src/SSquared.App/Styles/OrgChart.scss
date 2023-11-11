@@ -1,0 +1,29 @@
+﻿.org-chart-node {
+    $border: solid 1px black;
+    $nodePadding: 1rem;
+
+    border: $border;
+    text-align: center;
+
+    .org-chart-node-details {
+        padding: $nodePadding;
+        border-bottom: $border;
+    }
+
+    .org-chart-node {
+        $margin: 1rem;
+
+        display: inline-block;
+        margin: $margin;
+        vertical-align: top;
+
+        .vertical-line {
+            border-left: $border;
+            height:$nodePadding;
+            left: 50%;
+            margin-top:calc($nodePadding * -1);
+            position:relative;
+            width:1px;
+        }
+    }
+}

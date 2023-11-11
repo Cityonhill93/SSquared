@@ -1,0 +1,21 @@
+﻿.org-chart-node {
+  border: solid 1px black;
+  text-align: center;
+}
+.org-chart-node .org-chart-node-details {
+  padding: 1rem;
+  border-bottom: solid 1px black;
+}
+.org-chart-node .org-chart-node {
+  display: inline-block;
+  margin: 1rem;
+  vertical-align: top;
+}
+.org-chart-node .org-chart-node .vertical-line {
+  border-left: solid 1px black;
+  height: 1rem;
+  left: 50%;
+  margin-top: -1rem;
+  position: relative;
+  width: 1px;
+}
