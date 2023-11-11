@@ -21,7 +21,7 @@ namespace SSquared.App.Controllers
 
         [HttpPost("")]
         [ApiVersion("1")]
-        public async Task<IActionResult> AddEmployee([FromBody] AddEmployeeDto employee)
+        public async Task<IActionResult> AddEmployee([FromBody] UpsertEmployeeDto employee)
         {
             if (employee.ManagerId is not null)
             {

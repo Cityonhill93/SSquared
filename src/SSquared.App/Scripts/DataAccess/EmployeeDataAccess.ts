@@ -1,4 +1,4 @@
-﻿import { IAddEmployeeDto } from "../DTO/IAddEmployeeDto";
+﻿import { IAddEmployeeDto } from "../DTO/IUpsertEmployeeDto";
 import { IEmployeeDto } from "../DTO/IEmployeeDto";
 import { IExpandedEmployeeDto } from "../DTO/IExpandedEmployeeDto";
 import $, { data } from "jquery";

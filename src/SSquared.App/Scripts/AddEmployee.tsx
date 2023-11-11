@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import { addEmployee } from "./DataAccess/EmployeeDataAccess";
-import { IAddEmployeeDto } from "./DTO/IAddEmployeeDto";
+import { IAddEmployeeDto } from "./DTO/IUpsertEmployeeDto";
 import { EmployeeEditor } from "./SharedComponents/EmployeeEditor";
 import { IExpandedEmployeeDto } from "./DTO/IExpandedEmployeeDto";
 import ReactDOM from "react-dom";
