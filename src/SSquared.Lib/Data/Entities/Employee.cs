@@ -22,6 +22,14 @@ namespace SSquared.Lib.Data.Entities
 
         public bool MayBeManagedBy(Employee potentialManager)
         {
+            /*
+            TODO: There is a potential issue here where the potential manager could the a grandchild of the employee in question.
+            A potential fix would be to turn on lazy loading and recursively check the collection of employees. The downside is an unknown number of DB hits :(
+            Alternatively, we could create a service which does a better job of getting employees recursively (similar to the org chart) and makes sure that all is good.
+            Due to the short time before the interview, this may or may not be fixed, but I wanted to call it out as a known thing.
+            */
+
+
             if (potentialManager.Id == Id)
             {
                 //You cannot manaage yourself
