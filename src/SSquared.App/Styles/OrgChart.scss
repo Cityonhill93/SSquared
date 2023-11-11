@@ -1,41 +1,44 @@
 ﻿.org-chart-node {
     $border: solid 1px black;
-    $nodePadding: 1rem;
+    $detailsHeight:4rem;
+    $nodePadding: 3rem;
 
-    border: $border;
-    text-align: center;
+    border-left: $border;
 
     .org-chart-node-details {
         background-color: blue;
         color: white;
-        padding: $nodePadding;
-        border-bottom: $border;
+        height:$detailsHeight;
+        padding: 1rem;
+        text-align: center;
     }
 
-    .org-chart-node {
-        $margin: 1rem;
-
-        display: inline-block;
-        margin: $margin;
-        vertical-align: top;
-
+    .org-chart-node-children {
         .org-chart-node {
-            .org-chart-node-details {
-                background-color: mediumpurple;
+
+            display: inline-block;
+            margin-left: $nodePadding;
+            margin-top:1rem;
+            vertical-align: top;
+            width:calc(100% - ($nodePadding * 2));
+
+            .org-chart-node {
+                .org-chart-node-details {
+                    background-color: mediumpurple;
+                }
             }
-        }
 
-        .org-chart-node-details {
-            background-color: green;
-        }
+            .org-chart-node-details {
+                background-color: green;
+            }
 
-        .vertical-line {
-            border-left: $border;
-            height: $nodePadding;
-            left: 50%;
-            margin-top: calc($nodePadding * -1);
-            position: relative;
-            width: 1px;
+            .left-line {
+                border-top: $border;
+                top: calc($detailsHeight/2);
+                margin-left: calc($nodePadding * -1);
+                position: relative;
+                width: $nodePadding;
+            }
         }
     }
 }

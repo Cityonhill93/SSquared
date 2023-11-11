@@ -16,15 +16,17 @@ class OrgChartNodeComponent extends React.Component<OrgChartNodeComponentProps, 
     public render() {
         var node = this.props.node;
         var children = node.nodes.map(subNode => <OrgChartNodeComponent key={`subNode${subNode.id}`} includeVerticalLine={true} node={subNode}></OrgChartNodeComponent>);
-        var verticalLine = (this.props.includeVerticalLine
-            ? <div className="vertical-line"></div>
+        var leftLine = (this.props.includeVerticalLine
+            ? <div className="left-line"></div>
             : null);
         return <div className="org-chart-node">
-            {verticalLine}
+            {leftLine}
             <div className="org-chart-node-details">
                 <span>{node.firstName} {node.lastName}</span>
             </div>
-            {children}
+            <div className="org-chart-node-children">
+                {children}
+            </div>            
         </div>;
     }
 }
