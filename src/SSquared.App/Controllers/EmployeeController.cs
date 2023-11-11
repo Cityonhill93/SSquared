@@ -25,6 +25,11 @@ namespace SSquared.App.Controllers
         [ApiVersion("1")]
         public async Task<IActionResult> AddEmployee([FromBody] ModifyEmployeeDto employee)
         {
+            if (!employee.IsValid())
+            {
+                return BadRequest();
+            }
+
             if (employee.ManagerId is not null)
             {
                 //Let's make sure that it is a legit employee
@@ -90,6 +95,11 @@ namespace SSquared.App.Controllers
         [ApiVersion("1")]
         public async Task<IActionResult> UpdateEmployee([FromRoute] int id, [FromBody] ModifyEmployeeDto employee)
         {
+            if (!employee.IsValid())
+            {
+                return BadRequest();
+            }
+
             var existingEmployee = await _employeeRepository.GetAsync(id, HttpContext.RequestAborted);
             if (existingEmployee is null)
             {
