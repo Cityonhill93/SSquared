@@ -25,7 +25,8 @@ class AddEmployeePage extends React.Component<AddEmployeePageProps, AddEmployeeP
             employeeId: "",
             getUrl: "",
             employees: [],
-            manager:null
+            manager: null,
+            roles:[]
         };
 
         return <EmployeeEditor employee={employee} key="employeeEditor" onSave={ this.saveEmployee} ></EmployeeEditor>

@@ -2,6 +2,7 @@
 import { IEmployeeDto } from "../DTO/IEmployeeDto";
 import { IExpandedEmployeeDto } from "../DTO/IExpandedEmployeeDto";
 import { EmployeePicker } from "./EmployeePicker";
+import { RolePicker } from "./RolePicker";
 
 export class EmployeeEditor extends React.Component<EmployeeEditorProps, EmployeeEditorState> {
     constructor(p: EmployeeEditorProps) {
@@ -13,6 +14,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
         this.getState = this.getState.bind(this);
         this.lastNameChanged = this.lastNameChanged.bind(this);
         this.managerChanged = this.managerChanged.bind(this);
+        this.rolesChanged = this.rolesChanged.bind(this);
     }
 
     public render() {
@@ -22,8 +24,6 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
         const managerInputId = "managerId";
 
         var state = this.getState();
-
-        //TODO: Add roles
 
         return <div key={`employeeEditor${this.props.employee.id}`}>
             <div className="form-group">
@@ -41,6 +41,10 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
             <div className="form-group">
                 <label htmlFor={managerInputId}>Manager</label>
                 <EmployeePicker key={employeeIdInputId} id={employeeIdInputId} employeeSelected={this.managerChanged} value={state.managerId} ></EmployeePicker>
+            </div>
+            <div className="form-group">
+                <label>Roles</label>
+                <RolePicker key="roles" itemsChanged={ this.rolesChanged}></RolePicker>
             </div>
             <div>
                 <button className="btn btn-primary mt-3" type="button" onClick={ this.buttonClicked }>Save</button> 
@@ -85,7 +89,7 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
                 firstName: employee.firstName,
                 lastName: employee.lastName,
                 managerId: employee.manager?.id,
-                roleIds:[]  //TODO:Populate this from UI elements
+                roleIds: employee.roles.map(role => role.id)
             };
         }
 
@@ -103,6 +107,12 @@ export class EmployeeEditor extends React.Component<EmployeeEditorProps, Employe
     managerChanged(managerId:number|undefined) {
         var state = this.getState();
         state.managerId = managerId;
+        this.setState(state);
+    }
+
+    rolesChanged(selectedRoleIds: number[]) {
+        var state = this.getState();
+        state.roleIds = selectedRoleIds;
         this.setState(state);
     }
 }

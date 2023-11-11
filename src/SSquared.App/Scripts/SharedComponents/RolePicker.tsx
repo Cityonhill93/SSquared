@@ -68,6 +68,9 @@ class RolePickerState {
 class RolePickerItem extends React.Component<RolePickerItemProps, RolePickerItemState> {
     constructor(p: RolePickerItemProps) {
         super(p);
+
+        this.getState = this.getState.bind(this);
+        this.roleToggled = this.roleToggled.bind(this);
     }
 
     public render() {
@@ -75,8 +78,8 @@ class RolePickerItem extends React.Component<RolePickerItemProps, RolePickerItem
         var checked = this.props.selected;
 
         var checkboxElement = (checked
-            ? <input type="checkbox" value={role.id} checked ></input>
-            : <input type="checkbox" value={role.id}></input>);
+            ? <input type="checkbox" onChange={this.roleToggled} value={role.id} checked ></input>
+            : <input type="checkbox" onChange={this.roleToggled} value={role.id}></input>);
 
         return <label>
             {checkboxElement}
