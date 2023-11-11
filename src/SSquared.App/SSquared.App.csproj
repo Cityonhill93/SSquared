@@ -23,6 +23,7 @@
     <None Remove="Scripts\SharedComponents\EmployeeEditor.tsx" />
     <None Remove="Scripts\SharedComponents\EmployeePicker.tsx" />
     <None Remove="Scripts\SharedComponents\EmployeeTable.tsx" />
+    <None Remove="Scripts\SharedComponents\RolePicker.tsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +47,7 @@
     <TypeScriptCompile Include="Scripts\SharedComponents\EmployeeEditor.tsx" />
     <TypeScriptCompile Include="Scripts\SharedComponents\EmployeePicker.tsx" />
     <TypeScriptCompile Include="Scripts\SharedComponents\EmployeeTable.tsx" />
+    <TypeScriptCompile Include="Scripts\SharedComponents\RolePicker.tsx" />
     <TypeScriptCompile Include="tsconfig.json" />
   </ItemGroup>
 
