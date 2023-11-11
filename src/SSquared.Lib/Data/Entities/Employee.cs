@@ -20,6 +20,24 @@ namespace SSquared.Lib.Data.Entities
 
         public ICollection<EmployeeRole> EmployeeRoles { get; set; } = new List<EmployeeRole>();
 
+        public bool MayBeManagedBy(Employee potentialManager)
+        {
+            if (potentialManager.Id == Id)
+            {
+                //You cannot manaage yourself
+                return false;
+            }
+            else if (Employees.Any(e => e.Id == potentialManager.Id))
+            {
+                //You may not be managed by one of your own employees
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public void Modify(ModifyEmployeeArguments args)
         {
             FirstName = args.FirstName;
