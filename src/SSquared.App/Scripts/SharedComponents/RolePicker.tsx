@@ -78,13 +78,13 @@ class RolePickerItem extends React.Component<RolePickerItemProps, RolePickerItem
         var checked = this.props.selected;
 
         var checkboxElement = (checked
-            ? <input type="checkbox" onChange={this.roleToggled} value={role.id} checked ></input>
-            : <input type="checkbox" onChange={this.roleToggled} value={role.id}></input>);
+            ? <input className="form-check-input" type="checkbox" onChange={this.roleToggled} value={role.id} checked ></input>
+            : <input className="form-check-input" type="checkbox" onChange={this.roleToggled} value={role.id}></input>);
 
-        return <label>
+        return <div className="form-check">
             {checkboxElement}
-            { role.name}
-        </label>;
+            <label className="form-check-label">{role.name}</label>
+        </div>
     }
 
     getState(): RolePickerItemState {
