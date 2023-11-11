@@ -1,0 +1,20 @@
+﻿@page
+@model SSquared.App.Pages.UpdateEmployeeModel
+@{
+    ViewData["Title"] = "Update Employee";
+}
+
+<h1>Update Employee</h1>
+
+<div class="react-wrapper">
+</div>
+
+@section Scripts{
+
+    <script type="text/javascript" src="~/js/UpdateEmployee.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            UpdateEmployee.init();
+        });
+    </script>
+}
