@@ -6,6 +6,7 @@ export class EmployeePicker extends React.Component<EmployeePickerProps, Employe
     constructor(p: EmployeePickerProps) {
         super(p);
 
+        this.getDisplayValue = this.getDisplayValue.bind(this);
         this.getState = this.getState.bind(this);
         this.valueChanged = this.valueChanged.bind(this)
     }
@@ -17,8 +18,8 @@ export class EmployeePicker extends React.Component<EmployeePickerProps, Employe
         }
 
         var items = state.items.map(i => (i.id == this.props.value
-            ? <option key={`EmployeeOption${i.id}`} value={i.id} selected>{i.firstName} {i.lastName}</option>
-            : <option key={`EmployeeOption${i.id}`} value={i.id}>{i.firstName} {i.lastName}</option>));
+            ? <option key={`EmployeeOption${i.id}`} value={i.id} selected>{this.getDisplayValue(i)}</option>
+            : <option key={`EmployeeOption${i.id}`} value={i.id}>{this.getDisplayValue(i)}</option>));
         return <select id={this.props.id} key="employeePicker" className="form-select" onChange={ this.valueChanged} >
             <option>Select an employee....</option>
             {items}
@@ -33,6 +34,10 @@ export class EmployeePicker extends React.Component<EmployeePickerProps, Employe
             state.items = employees;
             this.setState(state);
         }
+    }
+
+    getDisplayValue(employee:IEmployeeDto): string {
+        return `${employee.firstName} ${employee.lastName} (${employee.employeeId})`;
     }
 
     getState(): EmployeePickerState {
