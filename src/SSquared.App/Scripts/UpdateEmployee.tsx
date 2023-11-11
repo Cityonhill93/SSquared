@@ -5,9 +5,9 @@ import { EmployeeEditor } from "./SharedComponents/EmployeeEditor";
 import { IExpandedEmployeeDto } from "./DTO/IExpandedEmployeeDto";
 import ReactDOM from "react-dom";
 
-export function init() {
+export function init(id:number) {
     var element = document.getElementsByClassName("react-wrapper")[0];
-    ReactDOM.render(<UpdateEmployeePage></UpdateEmployeePage>, element);
+    ReactDOM.render(<UpdateEmployeePage employeeId={id} ></UpdateEmployeePage>, element);
 }
 
 class UpdateEmployeePage extends React.Component<UpdateEmployeePageProps, UpdateEmployeePageState> {
