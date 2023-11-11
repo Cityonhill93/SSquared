@@ -59,7 +59,7 @@ namespace SSquared.App.Extensions
 
         public static Uri UpdateEmployee(this IUrlHelper urlHelper, int id)
         {
-            var values = new { id = id };
+            var values = new { id = id, v = (int?)null };   //For some reason, the API versioning wants to put the version number here....set it to null until you figure out why it is doing this
             var strUrl = urlHelper.Page(
                 pageName: "/UpdateEmployee",
                 values: values);
