@@ -1,8 +1,9 @@
 ﻿using SSquared.Lib.Data.Entities;
 using SSquared.Lib.Exceptions;
+using SSquared.Lib.OrgChart;
 using SSquared.Lib.Repositories;
 
-namespace SSquared.Lib.OrgChart.Services
+namespace SSquared.Lib.Services
 {
     public class OrgChartService : IOrgChartService
     {
@@ -37,12 +38,12 @@ namespace SSquared.Lib.OrgChart.Services
                 .Select(e => e.Id)
                 .Distinct()
                 .ToList();
-            var hydratedEmployees = (employeeIds.Any()
+            var hydratedEmployees = employeeIds.Any()
                 ? await _employeeRepository.GetAsync(
                     ids: employeeIds,
                     includeNavProperties: true,
                     cancellationToken: cancellationToken)
-                : new List<Employee>());
+                : new List<Employee>();
 
             var employeeNodes = new List<OrgChartNode>();
             foreach (var subEmployee in hydratedEmployees)

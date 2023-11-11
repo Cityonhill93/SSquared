@@ -1,8 +1,8 @@
 using Asp.Versioning;
 using Microsoft.EntityFrameworkCore;
 using SSquared.Lib.Data;
-using SSquared.Lib.OrgChart.Extensions;
 using SSquared.Lib.Repositories.Extensions;
+using SSquared.Lib.Services.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

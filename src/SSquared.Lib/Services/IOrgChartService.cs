@@ -1,6 +1,7 @@
 ﻿using SSquared.Lib.Data.Entities;
+using SSquared.Lib.OrgChart;
 
-namespace SSquared.Lib.OrgChart.Services
+namespace SSquared.Lib.Services
 {
     public interface IOrgChartService
     {

@@ -4,8 +4,8 @@ using SSquared.App.DTO;
 using SSquared.App.Extensions;
 using SSquared.Lib.Data.Entities;
 using SSquared.Lib.Exceptions;
-using SSquared.Lib.OrgChart.Services;
 using SSquared.Lib.Repositories;
+using SSquared.Lib.Services;
 
 namespace SSquared.App.Controllers
 {

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SSquared.Lib.OrgChart.Services;
 
-namespace SSquared.Lib.OrgChart.Extensions
+namespace SSquared.Lib.Services.Extensions
 {
     public static class IServiceCollectionExtensions
     {
