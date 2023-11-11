@@ -12,6 +12,7 @@ namespace SSquared.Lib.Repositories
             _dbContext = dbContext;
         }
 
+        //Ideally, we could have some kind of abstraction over the DB context, so that we could easily test the logic/filters in our get methods, but due to the short time before the interview, this will have to suffice
         protected readonly SSquaredDbContext _dbContext;
 
         public virtual async Task<IEnumerable<T>> GetAsync(CancellationToken cancellationToken = default)
