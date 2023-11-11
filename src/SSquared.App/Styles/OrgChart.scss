@@ -1,26 +1,22 @@
 ﻿.org-chart-node {
     $border: solid 1px black;
-    $detailsHeight:4rem;
+    $detailsHeight: 4rem;
     $nodePadding: 3rem;
-
-    border-left: $border;
 
     .org-chart-node-details {
         background-color: blue;
         color: white;
-        height:$detailsHeight;
+        height: $detailsHeight;
         padding: 1rem;
         text-align: center;
     }
 
     .org-chart-node-children {
-        .org-chart-node {
+        border: $border;
 
-            display: inline-block;
-            margin-left: $nodePadding;
+        .org-chart-node {
+            margin-bottom:1rem;
             margin-top:1rem;
-            vertical-align: top;
-            width:calc(100% - ($nodePadding * 2));
 
             .org-chart-node {
                 .org-chart-node-details {
@@ -30,14 +26,6 @@
 
             .org-chart-node-details {
                 background-color: green;
-            }
-
-            .left-line {
-                border-top: $border;
-                top: calc($detailsHeight/2);
-                margin-left: calc($nodePadding * -1);
-                position: relative;
-                width: $nodePadding;
             }
         }
     }
