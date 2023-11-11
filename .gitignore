@@ -10,6 +10,5 @@
 /src/*/SSquared.db
 /src/*/SSquared.db*
 /src/SSquared.App/node_modules
-/src/SSquared.App/wwwroot/js
 /test/SSquared.Lib.UnitTests/bin/Debug/net7.0
 /test/SSquared.Lib.UnitTests/obj
