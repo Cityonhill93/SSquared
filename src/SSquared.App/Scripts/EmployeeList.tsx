@@ -28,7 +28,7 @@ class EmployeeListPage extends React.Component<EmployeeListPageProps, EmployeeLi
         return <div>
             <div className="form-group mb-3"> 
                 <label htmlFor={employeePickerId} >Manager</label>
-                <EmployeePicker id={employeePickerId} key={employeePickerId} employeeSelected={this.managerSelected} ></EmployeePicker>
+                <EmployeePicker id={employeePickerId} key={employeePickerId} employeeSelected={this.managerSelected} getEmployees={getEmployees} ></EmployeePicker>
             </div>
             <EmployeeTable key="employeeTable" data={state.employees} ></EmployeeTable> 
         </div>;
