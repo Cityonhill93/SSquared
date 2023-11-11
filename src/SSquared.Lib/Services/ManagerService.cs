@@ -42,34 +42,17 @@ namespace SSquared.Lib.Services
                 return false;
             }
 
-            var employees = await GetEmployeesRecursive(employee, cancellationToken);
-            if (employees.Any(e => e.Id == potentialManager.Id))
-            {
-                //You may not be managed by one of your employees
-                return false;
-            }
-
-            return true;
-        }
-
-        //We may want to re-use this at some point....consider moving it to the repo?
-        private async Task<IEnumerable<Employee>> GetEmployeesRecursive(Employee employee, CancellationToken cancellationToken)
-        {
-            var employees = new List<Employee>();
-
             var directReports = await _employeeRepository.GetByManagerId(employee.Id, cancellationToken);
-            employees.AddRange(directReports);
             foreach (var directReport in directReports)
             {
-                var indirectReports = await GetEmployeesRecursive(directReport, cancellationToken);
-                var indiredctReportsToAdd = indirectReports.Where(idr => !employees.Any(e => e.Id == idr.Id));
-                if (indiredctReportsToAdd.Any())
+                var managerIsValid = await MayBeManagedByAsync(directReport, potentialManager, cancellationToken);
+                if (!managerIsValid)
                 {
-                    employees.AddRange(indiredctReportsToAdd);
+                    return false;
                 }
             }
 
-            return employees;
+            return true;
         }
     }
 }
