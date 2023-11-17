@@ -22,6 +22,11 @@ export async function getEmployee(id:number): Promise<IExpandedEmployeeDto> {
     return $.get(url);
 }
 
+export async function getEmployeesForSupervisor(supervisorId: number): Promise<IEmployeeDto[]> {
+    var url = `${baseApiPath}/${supervisorId}/Employees`;
+    return $.get(url);
+}
+
 export async function getEmployeeOrgChart(id: number): Promise<IOrgChartNode> {
     var url = `${baseApiPath}/${id}/OrgChart`;
     return $.get(url);

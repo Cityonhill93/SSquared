@@ -67,6 +67,23 @@ namespace SSquared.App.Controllers
             return Ok(dto);
         }
 
+        [HttpGet("{supervisorId}/Employees")]
+        [ApiVersion("1")]
+        public async Task<IActionResult> GetEmployeesForSupervisor(int supervisorId)
+        {
+            var supervisor = await _employeeRepository.GetAsync(supervisorId, HttpContext.RequestAborted);
+            if (supervisor is null)
+            {
+                return NotFound();
+            }
+
+            var dtos = supervisor
+                .Employees
+                .Select(e => e.ToEmployeeDto(Url))
+                .ToList();
+            return Ok(dtos);
+        }
+
         [HttpGet("{id}/OrgChart")]
         [ApiVersion("1")]
         public async Task<IActionResult> GetEmployeeOrgChart(int id)

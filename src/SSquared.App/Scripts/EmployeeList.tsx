@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { EmployeePicker } from "./SharedComponents/EmployeePicker";
 import { EmployeeTable } from "./SharedComponents/EmployeeTable";
 import { IEmployeeDto } from "./DTO/IEmployeeDto";
-import { getEmployee, getEmployees } from "./DataAccess/EmployeeDataAccess";
+import { getEmployee, getEmployees, getEmployeesForSupervisor } from "./DataAccess/EmployeeDataAccess";
 
 
 export function init() {
@@ -43,9 +43,7 @@ class EmployeeListPage extends React.Component<EmployeeListPageProps, EmployeeLi
     async getData(managerId:number|null): Promise<IEmployeeDto[]> {
 
         if (managerId) {
-            var employee = await getEmployee(managerId);
-
-            return employee.employees;
+            return await getEmployeesForSupervisor(managerId);
         }
         else {
             return await getEmployees();
